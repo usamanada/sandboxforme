@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<Databases>
+	<Database name="UESSQLA" type="SQL2000">
+		<User name="ccdsharepoint" hash="0x01005F6A417F93D281DB33291C4C1E00B307E95C8A6152FCDADA93D281DB33291C4C1E00B307E95C8A6152FCDADA"/>
+	</Database>
+</Databases>

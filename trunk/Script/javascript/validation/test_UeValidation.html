@@ -1,0 +1,106 @@
+<html>
+<head>
+<script src="UeValidation.js"></script>
+<script src="UECommon.js"></script>
+<script type="text/javascript">
+
+function fncTest(et, szValidresult, szError)
+{
+	var _ValidForm = new UeValidForm();
+	var _Msg = new UeMsg();
+	
+	switch (et)
+	{
+		case "Blank":
+  		UeValid_isBlank("Blank_Test","Blank Field","", _ValidForm, _Msg);
+  		fncResult( _ValidForm, "Blank_Result", "Field is populated", "Field is empty");
+		  break;
+		case "Email":
+  		UeValid_isEmail("Email_Test","Email Field",_ValidForm, _Msg);
+  		fncResult( _ValidForm, "Email_Result", "Valid email", "Invalid email");
+		  break;
+		case "IPAddress":
+  		_ValidForm.value = UeValid_isValidIPAddress("IPAddress_Test");
+  		if(_ValidForm.value == false)
+  		{
+  			UeSetFieldValues("IPAddress_Test");
+  		}
+  		fncResult( _ValidForm, "IPAddress_Result", "Valid IP Address", "Invalid IP Address");
+		  break;
+		case "Phone":
+  		UeValid_isPhone("Phone_Test","Phone Field",_ValidForm, _Msg);
+  		fncResult( _ValidForm, "Phone_Result", "Valid Phone", "Invalid Phone");
+		  break;
+		case "ServiceID":
+  		UeValid_isServiceID("ServiceID_Test","ServiceID Field",_ValidForm, _Msg);
+  		fncResult( _ValidForm, "ServiceID_Result", "Valid ServiceID", "Invalid ServiceID");
+		  break;		  
+		case "Numeric":
+  		UeValid_isNumeric("Numeric_Test","Numeric Field",_ValidForm, _Msg);
+  		fncResult( _ValidForm, "Numeric_Result", "Valid Numeric", "Invalid Numeric");
+		  break;		  
+		case "Time":
+  		UeValid_isTime("Time_Test","Time Field",_ValidForm, _Msg);
+  		fncResult( _ValidForm, "Time_Result", "Valid Time", "Invalid Time");
+		  break;		  
+	}
+}
+function fncResult( _ValidForm, szElementID, szPassed, szFailed)
+{
+	if(_ValidForm.value == false)
+	{
+		fncChangeText(szElementID, szFailed);
+	}
+	else
+	{
+		fncChangeText(szElementID, szPassed);	
+	}
+}
+function fncChangeText(szElementID, szText)
+{
+	document.getElementById(szElementID).innerHTML = szText;
+}
+</script>
+</head>
+<body>
+<FORM>
+	<table>
+		<tr>
+			<td><INPUT id="Blank_Test" SIZE=50/></td>
+			<td><INPUT TYPE=BUTTON  OnClick="fncTest('Blank');" VALUE="Blank" style="width:100px"></td>
+			<td><div id="Blank_Result"></div></td>
+		</tr>
+		<tr>
+			<td><INPUT id="Email_Test" SIZE=50/></td>
+			<td><INPUT TYPE=BUTTON  OnClick="fncTest('Email');" VALUE="Email" style="width:100px"></td>
+			<td><div id="Email_Result"></div></td>
+		</tr>
+		<tr>
+			<td><INPUT id="IPAddress_Test" SIZE=50/></td>
+			<td><INPUT TYPE=BUTTON  OnClick="fncTest('IPAddress');" VALUE="IPAddress" style="width:100px"></td>
+			<td><div id="IPAddress_Result"></div></td>
+		</tr>
+		<tr>
+			<td><INPUT id="Phone_Test" SIZE=50/></td>
+			<td><INPUT TYPE=BUTTON  OnClick="fncTest('Phone');" VALUE="Phone" style="width:100px"></td>
+			<td><div id="Phone_Result"></div></td>
+		</tr>
+		<tr>
+			<td><INPUT id="ServiceID_Test" SIZE=50/></td>
+			<td><INPUT TYPE=BUTTON  OnClick="fncTest('ServiceID');" VALUE="ServiceID" style="width:100px"></td>
+			<td><div id="ServiceID_Result"></div></td>
+		</tr>
+		<tr>
+			<td><INPUT id="Numeric_Test" SIZE=50/></td>
+			<td><INPUT TYPE=BUTTON  OnClick="fncTest('Numeric');" VALUE="Numeric" style="width:100px"></td>
+			<td><div id="Numeric_Result"></div></td>
+		</tr>
+		<tr>
+			<td><INPUT id="Time_Test" SIZE=50/></td>
+			<td><INPUT TYPE=BUTTON  OnClick="fncTest('Time');" VALUE="Time" style="width:100px"></td>
+			<td><div id="Time_Result"></div></td>
+		</tr>
+	</table>
+</FORM>
+</body>
+</html>

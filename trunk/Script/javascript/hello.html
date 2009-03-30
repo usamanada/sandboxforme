@@ -1,0 +1,22 @@
+<html>
+<script language="javascript">
+	function helloworld()
+	{
+		alert('Hello world');
+		var me = 3;
+		me = me + 5;
+		alert( me);
+		writeToDiv();
+	}
+	function writeToDiv()
+	{
+		var ID = document.getElementById('WriteMe');
+		ID.innerHTML = '<p>hello phil</p>';
+	}
+</script>
+
+<body>
+	<INPUT type="button" class=button value=Hello onclick="helloworld()">
+	<DIV ID='WriteMe'></DIV>
+</body>
+</html>

@@ -1,0 +1,31 @@
+;------------------------------------------------------------------------------
+;Start of the script
+;note the return statement
+;------------------------------------------------------------------------------
+:start
+   cls
+   if(@onwow64)
+      at (1,1) "Running 64 Bit OS"
+   else
+      at (1,1) "Running 32 Bit OS"
+
+   ;calling a function
+   gosub fun1
+
+   ;calling a functoin in a different way
+   $variable = 2
+   gosub fun + $variable
+
+return
+;------------------------------------------------------------------------------
+;Setting up a function
+;------------------------------------------------------------------------------
+:fun1
+   at (2,1) "calling fun1"
+   return
+;------------------------------------------------------------------------------
+;Setting up another function
+;------------------------------------------------------------------------------
+:fun2
+   at (3,1) "calling fun2"
+   return
