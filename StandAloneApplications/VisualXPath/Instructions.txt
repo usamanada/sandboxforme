@@ -1,0 +1,12 @@
+Installation directions:
+1. Download the ZIP file.
+2. Extract all the files into a directory, something like "C:\VXPath" would make sense.
+   [Make sure you select the option to "use folder names" when extracting the archive.]
+3. Double click on VisualXPath.exe in the bin\Debug directory.
+
+
+THIRD PARTY CLASSES:
+I used the PerformanceDemo class showed in the Microsoft .NET Show by Francesco Baleno.
+
+regards,
+Nauman Leghari

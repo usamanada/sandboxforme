@@ -1,0 +1,21 @@
+<html>
+<head>
+<script src="test.js"></script>
+<script type="text/javascript">
+function Validator()
+{
+	this.strBlankMsg = "";
+}
+var ov = new Validator();
+</script>
+</head>
+<body>
+<form name="nameForm">
+<input type="text" name="nameField">  
+<input type="button" onclick="alertName(ov)">  
+<input type="button" onclick="alertName(nameField)">  
+<input type="button" onclick="alert(ov.strBlankMsg)">  
+</form>
+
+</body>
+</html>

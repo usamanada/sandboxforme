@@ -1,0 +1,29 @@
+<html>
+<head>
+<script src="UeValidation.js"></script>
+<script src="UECommon.js"></script>
+<script type="text/javascript">
+
+var eFilterType = { eOpen:0, eClosed:1 };
+function fncTest(eType)
+{
+	switch (eType)
+	{
+		case eFilterType.eOpen:
+			alert("open");
+  		break;
+		case eFilterType.eClosed:
+			alert("closed");
+  		break;
+		
+	}
+}
+</script>
+</head>
+<body>
+	<FORM>
+			<INPUT TYPE=BUTTON  OnClick="fncTest(eFilterType.eOpen);" VALUE="Open" style="width:100px"><br>
+			<INPUT TYPE=BUTTON  OnClick="fncTest(eFilterType.eClosed);" VALUE="Closed" style="width:100px">
+	</FORM>
+</body>
+</html>

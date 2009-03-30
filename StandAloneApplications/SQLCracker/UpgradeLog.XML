@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="SQLCracker">
+</Property><Property Name="Solution File" Value="D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\SQLCracker.sln">
+</Property><Property Name="User Options File" Value="D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\SQLCracker.suo">
+</Property><Property Name="Date" Value="Tuesday, 29 July 2008">
+</Property><Property Name="Time" Value="15:23 PM">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="SQLCracker.sln" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\SQLCracker.sln">
+</Event><Event ErrorLevel="0" Project="" Source="SQLCracker.suo" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\SQLCracker.suo">
+</Event><Event ErrorLevel="0" Project="SQLCracker" Source="SQLCracker\SQLCracker.csproj" Description="Project file successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\SQLCracker\SQLCracker.csproj">
+</Event><Event ErrorLevel="0" Project="SQLCracker" Source="SQLCracker\Form1.cs" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\SQLCracker\Form1.cs">
+</Event><Event ErrorLevel="0" Project="SQLCracker" Source="SQLCracker\Form1.Designer.cs" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\SQLCracker\Form1.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SQLCracker" Source="SQLCracker\Program.cs" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\SQLCracker\Program.cs">
+</Event><Event ErrorLevel="0" Project="SQLCracker" Source="SQLCracker\Properties\AssemblyInfo.cs" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\SQLCracker\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="SQLCracker" Source="SQLCracker\Properties\Resources.Designer.cs" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\SQLCracker\Properties\Resources.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SQLCracker" Source="SQLCracker\Properties\Settings.Designer.cs" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\SQLCracker\Properties\Settings.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SQLCracker" Source="SQLCracker\Properties\Settings.settings" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\SQLCracker\Properties\Settings.settings">
+</Event><Event ErrorLevel="0" Project="SQLCracker" Source="SQLCracker\Form1.resx" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\SQLCracker\Form1.resx">
+</Event><Event ErrorLevel="0" Project="SQLCracker" Source="SQLCracker\Properties\Resources.resx" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\SQLCracker\Properties\Resources.resx">
+</Event><Event ErrorLevel="0" Project="SQLCracker" Source="SQLCracker\SQLCracker.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="SQLCracker" Source="SQLCracker\SQLCracker.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="SQLCracker2" Source="SQLCracker2\SQLCracker2.csproj" Description="Project file successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\SQLCracker2\SQLCracker2.csproj">
+</Event><Event ErrorLevel="0" Project="SQLCracker2" Source="SQLCracker2\BruteForceAttack.cs" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\SQLCracker2\BruteForceAttack.cs">
+</Event><Event ErrorLevel="0" Project="SQLCracker2" Source="SQLCracker2\Dictionary.cs" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\SQLCracker2\Dictionary.cs">
+</Event><Event ErrorLevel="0" Project="SQLCracker2" Source="SQLCracker2\DictionaryHelper.cs" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\SQLCracker2\DictionaryHelper.cs">
+</Event><Event ErrorLevel="0" Project="SQLCracker2" Source="SQLCracker2\Form1.cs" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\SQLCracker2\Form1.cs">
+</Event><Event ErrorLevel="0" Project="SQLCracker2" Source="SQLCracker2\Form1.Designer.cs" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\SQLCracker2\Form1.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SQLCracker2" Source="SQLCracker2\PasswordHelper.cs" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\SQLCracker2\PasswordHelper.cs">
+</Event><Event ErrorLevel="0" Project="SQLCracker2" Source="SQLCracker2\User.cs" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\SQLCracker2\User.cs">
+</Event><Event ErrorLevel="0" Project="SQLCracker2" Source="SQLCracker2\Program.cs" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\SQLCracker2\Program.cs">
+</Event><Event ErrorLevel="0" Project="SQLCracker2" Source="SQLCracker2\Properties\AssemblyInfo.cs" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\SQLCracker2\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="SQLCracker2" Source="SQLCracker2\Properties\Resources.Designer.cs" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\SQLCracker2\Properties\Resources.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SQLCracker2" Source="SQLCracker2\Properties\Settings.Designer.cs" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\SQLCracker2\Properties\Settings.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SQLCracker2" Source="SQLCracker2\UserTreeNode.cs" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\SQLCracker2\UserTreeNode.cs">
+</Event><Event ErrorLevel="0" Project="SQLCracker2" Source="SQLCracker2\App.config" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\SQLCracker2\App.config">
+</Event><Event ErrorLevel="0" Project="SQLCracker2" Source="SQLCracker2\Properties\Settings.settings" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\SQLCracker2\Properties\Settings.settings">
+</Event><Event ErrorLevel="0" Project="SQLCracker2" Source="SQLCracker2\Form1.resx" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\SQLCracker2\Form1.resx">
+</Event><Event ErrorLevel="0" Project="SQLCracker2" Source="SQLCracker2\Properties\Resources.resx" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\SQLCracker2\Properties\Resources.resx">
+</Event><Event ErrorLevel="0" Project="SQLCracker2" Source="SQLCracker2\SQLCracker2.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="SQLCracker2" Source="SQLCracker2\SQLCracker2.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="CharToggle" Source="CharToggle\CharToggle.csproj" Description="Project file successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\CharToggle\CharToggle.csproj">
+</Event><Event ErrorLevel="0" Project="CharToggle" Source="CharToggle\Program.cs" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\CharToggle\Program.cs">
+</Event><Event ErrorLevel="0" Project="CharToggle" Source="CharToggle\Properties\AssemblyInfo.cs" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\CharToggle\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="CharToggle" Source="CharToggle\CharToggle.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="CharToggle" Source="CharToggle\CharToggle.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="CharIncrementor" Source="CharIncrementor\CharIncrementor.csproj" Description="Project file successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\CharIncrementor\CharIncrementor.csproj">
+</Event><Event ErrorLevel="0" Project="CharIncrementor" Source="CharIncrementor\Form1.cs" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\CharIncrementor\Form1.cs">
+</Event><Event ErrorLevel="0" Project="CharIncrementor" Source="CharIncrementor\Form1.Designer.cs" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\CharIncrementor\Form1.Designer.cs">
+</Event><Event ErrorLevel="0" Project="CharIncrementor" Source="CharIncrementor\Program.cs" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\CharIncrementor\Program.cs">
+</Event><Event ErrorLevel="0" Project="CharIncrementor" Source="CharIncrementor\Properties\AssemblyInfo.cs" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\CharIncrementor\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="CharIncrementor" Source="CharIncrementor\Properties\Resources.Designer.cs" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\CharIncrementor\Properties\Resources.Designer.cs">
+</Event><Event ErrorLevel="0" Project="CharIncrementor" Source="CharIncrementor\Properties\Settings.Designer.cs" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\CharIncrementor\Properties\Settings.Designer.cs">
+</Event><Event ErrorLevel="0" Project="CharIncrementor" Source="CharIncrementor\Properties\Settings.settings" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\CharIncrementor\Properties\Settings.settings">
+</Event><Event ErrorLevel="0" Project="CharIncrementor" Source="CharIncrementor\Form1.resx" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\CharIncrementor\Form1.resx">
+</Event><Event ErrorLevel="0" Project="CharIncrementor" Source="CharIncrementor\Properties\Resources.resx" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\CharIncrementor\Properties\Resources.resx">
+</Event><Event ErrorLevel="0" Project="CharIncrementor" Source="CharIncrementor\CharIncrementor.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="CharIncrementor" Source="CharIncrementor\CharIncrementor.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="ThreadTest" Source="ThreadTest\ThreadTest.csproj" Description="Project file successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\ThreadTest\ThreadTest.csproj">
+</Event><Event ErrorLevel="0" Project="ThreadTest" Source="ThreadTest\Form1.cs" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\ThreadTest\Form1.cs">
+</Event><Event ErrorLevel="0" Project="ThreadTest" Source="ThreadTest\Form1.Designer.cs" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\ThreadTest\Form1.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ThreadTest" Source="ThreadTest\Program.cs" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\ThreadTest\Program.cs">
+</Event><Event ErrorLevel="0" Project="ThreadTest" Source="ThreadTest\Properties\AssemblyInfo.cs" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\ThreadTest\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="ThreadTest" Source="ThreadTest\Properties\Resources.Designer.cs" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\ThreadTest\Properties\Resources.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ThreadTest" Source="ThreadTest\Properties\Settings.Designer.cs" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\ThreadTest\Properties\Settings.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ThreadTest" Source="ThreadTest\Properties\Settings.settings" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\ThreadTest\Properties\Settings.settings">
+</Event><Event ErrorLevel="0" Project="ThreadTest" Source="ThreadTest\Form1.resx" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\ThreadTest\Form1.resx">
+</Event><Event ErrorLevel="0" Project="ThreadTest" Source="ThreadTest\Properties\Resources.resx" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\ThreadTest\Properties\Resources.resx">
+</Event><Event ErrorLevel="0" Project="ThreadTest" Source="ThreadTest\ThreadTest.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="ThreadTest" Source="ThreadTest\ThreadTest.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="ProcessorCount" Source="ProcessorCount\ProcessorCount.csproj" Description="Project file successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\ProcessorCount\ProcessorCount.csproj">
+</Event><Event ErrorLevel="0" Project="ProcessorCount" Source="ProcessorCount\Program.cs" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\ProcessorCount\Program.cs">
+</Event><Event ErrorLevel="0" Project="ProcessorCount" Source="ProcessorCount\Properties\AssemblyInfo.cs" Description="File successfully backed up as D:\Work\sandbox\oszymczak\dotnet\2008\SQLCracker\Backup\ProcessorCount\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="ProcessorCount" Source="ProcessorCount\ProcessorCount.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="ProcessorCount" Source="ProcessorCount\ProcessorCount.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="SQLCracker.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="SQLCracker.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="SQLCracker" Source="SQLCracker\SQLCracker.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="SQLCracker2" Source="SQLCracker2\SQLCracker2.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="CharToggle" Source="CharToggle\CharToggle.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="CharIncrementor" Source="CharIncrementor\CharIncrementor.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="ThreadTest" Source="ThreadTest\ThreadTest.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="ProcessorCount" Source="ProcessorCount\ProcessorCount.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>
