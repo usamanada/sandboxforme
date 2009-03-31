@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://Calulator.Stargate/" targetNamespace="http://Calulator.Stargate/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Add" type="tns:Add" />
+  <xs:element name="AddResponse" type="tns:AddResponse" />
+  <xs:complexType name="Add">
+    <xs:sequence>
+      <xs:element name="a" type="xs:int" />
+      <xs:element name="b" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AddResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
