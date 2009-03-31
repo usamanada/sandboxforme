@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallJavaWebService", "CallJavaWebService\CallJavaWebService.csproj", "{E1FE18AE-9323-4DAA-B5C7-6839341FEDBB}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{E1FE18AE-9323-4DAA-B5C7-6839341FEDBB}.Debug.ActiveCfg = Debug|.NET
+		{E1FE18AE-9323-4DAA-B5C7-6839341FEDBB}.Debug.Build.0 = Debug|.NET
+		{E1FE18AE-9323-4DAA-B5C7-6839341FEDBB}.Release.ActiveCfg = Release|.NET
+		{E1FE18AE-9323-4DAA-B5C7-6839341FEDBB}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal
