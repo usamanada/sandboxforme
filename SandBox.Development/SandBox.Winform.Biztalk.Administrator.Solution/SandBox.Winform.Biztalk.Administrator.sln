@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SandBox.Winform.Biztalk.Administrator.Client", "..\SandBox.Winform.Biztalk.Administrator.Client\SandBox.Winform.Biztalk.Administrator.Client.csproj", "{715A7AD6-0DE3-4457-A77B-21621549034B}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E73AEF09-CCBF-4949-962D-36ED6C9F9D8C}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+	ProjectSection(SolutionItems) = preProject
+		BizTalkSetUp.vsmdi = BizTalkSetUp.vsmdi
+		localtestrun.testrunconfig = localtestrun.testrunconfig
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SandBox.Winform.Biztalk.Administrator.Test", "..\SandBox.Winform.Biztalk.Administrator.Test\SandBox.Winform.Biztalk.Administrator.Test.csproj", "{6F51C05C-6A80-4C0D-95DF-69E1D440EBC8}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SandBox.Winform.Biztalk.Administrator", "..\SandBox.Winform.Biztalk.Administrator\SandBox.Winform.Biztalk.Administrator.csproj", "{64221F17-8E10-4783-A167-CD805E073E6A}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SandBox.Winform.Components", "..\SandBox.Winform.Components\SandBox.Winform.Components.csproj", "{558959B8-D389-4BE1-A58C-CB8E2E59EB96}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = BizTalkSetUp.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{715A7AD6-0DE3-4457-A77B-21621549034B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{715A7AD6-0DE3-4457-A77B-21621549034B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{715A7AD6-0DE3-4457-A77B-21621549034B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{715A7AD6-0DE3-4457-A77B-21621549034B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F51C05C-6A80-4C0D-95DF-69E1D440EBC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F51C05C-6A80-4C0D-95DF-69E1D440EBC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F51C05C-6A80-4C0D-95DF-69E1D440EBC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F51C05C-6A80-4C0D-95DF-69E1D440EBC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64221F17-8E10-4783-A167-CD805E073E6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64221F17-8E10-4783-A167-CD805E073E6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64221F17-8E10-4783-A167-CD805E073E6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64221F17-8E10-4783-A167-CD805E073E6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{558959B8-D389-4BE1-A58C-CB8E2E59EB96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{558959B8-D389-4BE1-A58C-CB8E2E59EB96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{558959B8-D389-4BE1-A58C-CB8E2E59EB96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{558959B8-D389-4BE1-A58C-CB8E2E59EB96}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

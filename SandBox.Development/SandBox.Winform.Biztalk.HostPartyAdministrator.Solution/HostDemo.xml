@@ -1,0 +1,238 @@
+<Hosts>
+  <Host Name="CcdExecution32Bit" Type="InProcess">
+    <AllowHostTracking>true</AllowHostTracking>
+    <AuthenticationTrusted>true</AuthenticationTrusted>
+    <ThirtyTwoBitOnly>true</ThirtyTwoBitOnly>
+    <DefualtHost>false</DefualtHost>
+    <WindowsGroup>corp\BizTalk Development CCD Execution 32 Bit Host Users</WindowsGroup>
+    <SetHostInstances Action="True">
+      <Server Name="UMELBD14" Disable="False">
+        <UserName>corp\BTDHostCcdExec32</UserName>
+        <Password Prompt="True">uecomm_pass!</Password>
+      </Server>
+    </SetHostInstances>
+    <SetAdapters Action="True">
+      <Adapter Name="FILE" Type="Receive" />
+      <Adapter Name="SQL" Type="Receive" />
+    </SetAdapters>
+  </Host>
+  <Host Name="CcdSend32Bit" Type="InProcess">
+    <AllowHostTracking>false</AllowHostTracking>
+    <AuthenticationTrusted>false</AuthenticationTrusted>
+    <ThirtyTwoBitOnly>true</ThirtyTwoBitOnly>
+    <DefualtHost>false</DefualtHost>
+    <WindowsGroup>corp\BizTalk Development CCD Send 32 Bit Host Users</WindowsGroup>
+    <SetHostInstances Action="True">
+      <Server Name="UMELBD14" Disable="False">
+        <UserName>corp\BTDHostCcdSend32</UserName>
+        <Password Prompt="True">uecomm_pass!</Password>
+      </Server>
+    </SetHostInstances>
+    <SetAdapters Action="True">
+      <Adapter Name="SQL" Type="Receive" />
+      <Adapter Name="FILE" Type="Receive" />
+    </SetAdapters>
+  </Host>
+  <Host Name="Default" Type="InProcess">
+    <AllowHostTracking>true</AllowHostTracking>
+    <AuthenticationTrusted>false</AuthenticationTrusted>
+    <ThirtyTwoBitOnly>true</ThirtyTwoBitOnly>
+    <DefualtHost>true</DefualtHost>
+    <WindowsGroup>CORP\BizTalk Development Default Host Users</WindowsGroup>
+    <SetHostInstances Action="True">
+      <Server Name="UMELBD14" Disable="False">
+        <UserName>CORP\BTDHostDef</UserName>
+        <Password Prompt="True">uecomm_pass!</Password>
+      </Server>
+    </SetHostInstances>
+    <SetAdapters Action="True">
+      <Adapter Name="Oracle_Database" Type="Receive" />
+      <Adapter Name="FILE" Type="Receive" />
+      <Adapter Name="FTP" Type="Receive" />
+      <Adapter Name="MQSeries" Type="Receive" />
+      <Adapter Name="MSMQ" Type="Receive" />
+      <Adapter Name="POP3" Type="Receive" />
+      <Adapter Name="SQL" Type="Receive" />
+      <Adapter Name="WCF-Custom" Type="Receive" />
+      <Adapter Name="WCF-NetMsmq" Type="Receive" />
+      <Adapter Name="WCF-NetNamedPipe" Type="Receive" />
+      <Adapter Name="WCF-NetTcp" Type="Receive" />
+      <Adapter Name="Windows SharePoint Services" Type="Receive" />
+      <Adapter Name="FILE" Type="Send" />
+      <Adapter Name="FTP" Type="Send" />
+      <Adapter Name="HTTP" Type="Send" />
+      <Adapter Name="MQSeries" Type="Send" />
+      <Adapter Name="MSMQ" Type="Send" />
+      <Adapter Name="SMTP" Type="Send" />
+      <Adapter Name="SOAP" Type="Send" />
+      <Adapter Name="SQL" Type="Send" />
+      <Adapter Name="WCF-BasicHttp" Type="Send" />
+      <Adapter Name="WCF-Custom" Type="Send" />
+      <Adapter Name="WCF-NetMsmq" Type="Send" />
+      <Adapter Name="WCF-NetNamedPipe" Type="Send" />
+      <Adapter Name="WCF-NetTcp" Type="Send" />
+      <Adapter Name="WCF-WSHttp" Type="Send" />
+      <Adapter Name="Windows SharePoint Services" Type="Send" />
+      <Adapter Name="Oracle_Database" Type="Send" />
+    </SetAdapters>
+  </Host>
+  <Host Name="DefaultIsolated" Type="Isolated">
+    <AllowHostTracking>false</AllowHostTracking>
+    <AuthenticationTrusted>false</AuthenticationTrusted>
+    <ThirtyTwoBitOnly>true</ThirtyTwoBitOnly>
+    <DefualtHost>false</DefualtHost>
+    <WindowsGroup>CORP\BizTalk Development Default Isolated Host Users</WindowsGroup>
+    <SetHostInstances Action="True">
+      <Server Name="UMELBD14" Disable="False">
+        <UserName>CORP\BTDHostDefIso</UserName>
+        <Password Prompt="True">uecomm_pass!</Password>
+      </Server>
+    </SetHostInstances>
+    <SetAdapters Action="True">
+      <Adapter Name="HTTP" Type="Receive" />
+      <Adapter Name="SOAP" Type="Receive" />
+      <Adapter Name="WCF-BasicHttp" Type="Receive" />
+      <Adapter Name="WCF-CustomIsolated" Type="Receive" />
+      <Adapter Name="WCF-WSHttp" Type="Receive" />
+    </SetAdapters>
+  </Host>
+  <Host Name="Enterprise32Bit" Type="InProcess">
+    <AllowHostTracking>false</AllowHostTracking>
+    <AuthenticationTrusted>false</AuthenticationTrusted>
+    <ThirtyTwoBitOnly>true</ThirtyTwoBitOnly>
+    <DefualtHost>false</DefualtHost>
+    <WindowsGroup>corp\BizTalk Development Enterprise 32 Bit Host Users</WindowsGroup>
+    <SetHostInstances Action="True">
+      <Server Name="UMELBD14" Disable="False">
+        <UserName>corp\BTDHostEnt32</UserName>
+        <Password Prompt="True">uecomm_pass!</Password>
+      </Server>
+    </SetHostInstances>
+    <SetAdapters Action="True">
+      <Adapter Name="FILE" Type="Receive" />
+      <Adapter Name="SQL" Type="Receive" />
+    </SetAdapters>
+  </Host>
+  <Host Name="LrmExecution32Bit" Type="InProcess">
+    <AllowHostTracking>false</AllowHostTracking>
+    <AuthenticationTrusted>false</AuthenticationTrusted>
+    <ThirtyTwoBitOnly>true</ThirtyTwoBitOnly>
+    <DefualtHost>false</DefualtHost>
+    <WindowsGroup>corp\BizTalk Development LRM Execution 32 Bit Host Users</WindowsGroup>
+    <SetHostInstances Action="True">
+      <Server Name="UMELBD14" Disable="False">
+        <UserName>corp\BTDHostLrmExec32</UserName>
+        <Password Prompt="True">uecomm_pass!</Password>
+      </Server>
+    </SetHostInstances>
+    <SetAdapters Action="True">
+      <Adapter Name="FILE" Type="Receive" />
+      <Adapter Name="SQL" Type="Receive" />
+    </SetAdapters>
+  </Host>
+  <Host Name="LrmReceive32Bit" Type="InProcess">
+    <AllowHostTracking>false</AllowHostTracking>
+    <AuthenticationTrusted>false</AuthenticationTrusted>
+    <ThirtyTwoBitOnly>true</ThirtyTwoBitOnly>
+    <DefualtHost>false</DefualtHost>
+    <WindowsGroup>corp\BizTalk Development LRM Receive 32 Bit Host Users</WindowsGroup>
+    <SetHostInstances Action="True">
+      <Server Name="UMELBD14" Disable="False">
+        <UserName>corp\admoszymczak</UserName>
+        <Password Prompt="True">uecomm_pass!</Password>
+      </Server>
+    </SetHostInstances>
+    <SetAdapters Action="True">
+      <Adapter Name="FILE" Type="Receive" />
+      <Adapter Name="SQL" Type="Receive" />
+      <Adapter Name="Oracle_Database" Type="Receive" />
+    </SetAdapters>
+  </Host>
+  <Host Name="LrmSend32Bit" Type="InProcess">
+    <AllowHostTracking>false</AllowHostTracking>
+    <AuthenticationTrusted>false</AuthenticationTrusted>
+    <ThirtyTwoBitOnly>true</ThirtyTwoBitOnly>
+    <DefualtHost>false</DefualtHost>
+    <WindowsGroup>corp\BizTalk Development LRM Send 32 Bit Host Users</WindowsGroup>
+    <SetHostInstances Action="True">
+      <Server Name="UMELBD14" Disable="False">
+        <UserName>corp\BTDHostLrmSend32</UserName>
+        <Password Prompt="True">uecomm_pass!</Password>
+      </Server>
+    </SetHostInstances>
+    <SetAdapters Action="True">
+      <Adapter Name="FILE" Type="Receive" />
+      <Adapter Name="SQL" Type="Receive" />
+    </SetAdapters>
+  </Host>
+  <Host Name="ProjectTrackingReceive32Bit" Type="InProcess">
+    <AllowHostTracking>false</AllowHostTracking>
+    <AuthenticationTrusted>false</AuthenticationTrusted>
+    <ThirtyTwoBitOnly>true</ThirtyTwoBitOnly>
+    <DefualtHost>false</DefualtHost>
+    <WindowsGroup>corp\BizTalk Development Project Tracking Receive 32 Bit Host Users</WindowsGroup>
+    <SetHostInstances Action="True">
+      <Server Name="UMELBD14" Disable="False">
+        <UserName>corp\BTDHostPTRec32</UserName>
+        <Password Prompt="True">uecomm_pass!</Password>
+      </Server>
+    </SetHostInstances>
+    <SetAdapters Action="True">
+      <Adapter Name="FILE" Type="Receive" />
+      <Adapter Name="SQL" Type="Receive" />
+    </SetAdapters>
+  </Host>
+  <Host Name="ProjectTrackingSend32Bit" Type="InProcess">
+    <AllowHostTracking>false</AllowHostTracking>
+    <AuthenticationTrusted>false</AuthenticationTrusted>
+    <ThirtyTwoBitOnly>true</ThirtyTwoBitOnly>
+    <DefualtHost>false</DefualtHost>
+    <WindowsGroup>corp\BizTalk Development Project Tracking Send 32 Bit Host Users</WindowsGroup>
+    <SetHostInstances Action="True">
+      <Server Name="UMELBD14" Disable="False">
+        <UserName>corp\BTDHostPTSend32</UserName>
+        <Password Prompt="True">uecomm_pass!</Password>
+      </Server>
+    </SetHostInstances>
+    <SetAdapters Action="True">
+      <Adapter Name="SQL" Type="Receive" />
+      <Adapter Name="FILE" Type="Receive" />
+    </SetAdapters>
+  </Host>
+  <Host Name="SandBox32" Type="InProcess">
+    <AllowHostTracking>true</AllowHostTracking>
+    <AuthenticationTrusted>false</AuthenticationTrusted>
+    <ThirtyTwoBitOnly>true</ThirtyTwoBitOnly>
+    <DefualtHost>false</DefualtHost>
+    <WindowsGroup>corp\BizTalk Development Sandbox 32 Bit Host Users</WindowsGroup>
+    <SetHostInstances Action="True">
+      <Server Name="UMELBD14" Disable="False">
+        <UserName>corp\oszymczak</UserName>
+        <Password Prompt="True">uecomm_pass!</Password>
+      </Server>
+    </SetHostInstances>
+    <SetAdapters Action="True">
+      <Adapter Name="Oracle_Database" Type="Receive" />
+      <Adapter Name="WCF-NetTcp" Type="Receive" />
+      <Adapter Name="FILE" Type="Receive" />
+    </SetAdapters>
+  </Host>
+  <Host Name="VplsExecution32Bit" Type="InProcess">
+    <AllowHostTracking>false</AllowHostTracking>
+    <AuthenticationTrusted>false</AuthenticationTrusted>
+    <ThirtyTwoBitOnly>true</ThirtyTwoBitOnly>
+    <DefualtHost>false</DefualtHost>
+    <WindowsGroup>corp\BizTalk Development VPLS Execution 32 Bit Host Users</WindowsGroup>
+    <SetHostInstances Action="True">
+      <Server Name="UMELBD14" Disable="False">
+        <UserName>corp\BTDHostVplsExec32</UserName>
+        <Password Prompt="True">uecomm_pass!</Password>
+      </Server>
+    </SetHostInstances>
+    <SetAdapters Action="True">
+      <Adapter Name="FILE" Type="Receive" />
+      <Adapter Name="SQL" Type="Receive" />
+      <Adapter Name="WCF-NetTcp" Type="Receive" />
+    </SetAdapters>
+  </Host>
+</Hosts>
