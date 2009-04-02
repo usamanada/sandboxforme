@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="OrderedPropertyGridDemo">
+</Property><Property Name="Solution File" Value="C:\Temp\New Folder\OrderedPropertyGridDemo.sln">
+</Property><Property Name="Date" Value="Tuesday, 24 February 2009">
+</Property><Property Name="Time" Value="10:05 AM">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="OrderedPropertyGridDemo.sln" Description="File successfully backed up as C:\Temp\New Folder\Backup\OrderedPropertyGridDemo.sln">
+</Event><Event ErrorLevel="0" Project="OrderedPropertyGridDemo" Source="OrderedPropertyGridDemo.csproj" Description="Project file successfully backed up as C:\Temp\New Folder\Backup\OrderedPropertyGridDemo.csproj">
+</Event><Event ErrorLevel="0" Project="OrderedPropertyGridDemo" Source="AssemblyInfo.cs" Description="File successfully backed up as C:\Temp\New Folder\Backup\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="OrderedPropertyGridDemo" Source="CompileEngine.cs" Description="File successfully backed up as C:\Temp\New Folder\Backup\CompileEngine.cs">
+</Event><Event ErrorLevel="0" Project="OrderedPropertyGridDemo" Source="MainForm.cs" Description="File successfully backed up as C:\Temp\New Folder\Backup\MainForm.cs">
+</Event><Event ErrorLevel="0" Project="OrderedPropertyGridDemo" Source="PropertySorter.cs" Description="File successfully backed up as C:\Temp\New Folder\Backup\PropertySorter.cs">
+</Event><Event ErrorLevel="0" Project="OrderedPropertyGridDemo" Source="App.ico" Description="File successfully backed up as C:\Temp\New Folder\Backup\App.ico">
+</Event><Event ErrorLevel="0" Project="OrderedPropertyGridDemo" Source="Examples\1.StaffNotOrdered.cs" Description="File successfully backed up as C:\Temp\New Folder\Backup\Examples\1.StaffNotOrdered.cs">
+</Event><Event ErrorLevel="0" Project="OrderedPropertyGridDemo" Source="Examples\2.StaffOrdered.cs" Description="File successfully backed up as C:\Temp\New Folder\Backup\Examples\2.StaffOrdered.cs">
+</Event><Event ErrorLevel="0" Project="OrderedPropertyGridDemo" Source="Examples\3.SimpleNotOrdered.cs" Description="File successfully backed up as C:\Temp\New Folder\Backup\Examples\3.SimpleNotOrdered.cs">
+</Event><Event ErrorLevel="0" Project="OrderedPropertyGridDemo" Source="Examples\4.SimpleOrdered.cs" Description="File successfully backed up as C:\Temp\New Folder\Backup\Examples\4.SimpleOrdered.cs">
+</Event><Event ErrorLevel="0" Project="OrderedPropertyGridDemo" Source="Examples\5.HeirachyNotOrdered.cs" Description="File successfully backed up as C:\Temp\New Folder\Backup\Examples\5.HeirachyNotOrdered.cs">
+</Event><Event ErrorLevel="0" Project="OrderedPropertyGridDemo" Source="Examples\6.HeirachyOrdered.cs" Description="File successfully backed up as C:\Temp\New Folder\Backup\Examples\6.HeirachyOrdered.cs">
+</Event><Event ErrorLevel="0" Project="OrderedPropertyGridDemo" Source="MainForm.resx" Description="File successfully backed up as C:\Temp\New Folder\Backup\MainForm.resx">
+</Event><Event ErrorLevel="0" Project="OrderedPropertyGridDemo" Source="OrderedPropertyGridDemo.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="OrderedPropertyGridDemo" Source="OrderedPropertyGridDemo.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="OrderedPropertyGridDemo.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="OrderedPropertyGridDemo.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="OrderedPropertyGridDemo" Source="OrderedPropertyGridDemo.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>
