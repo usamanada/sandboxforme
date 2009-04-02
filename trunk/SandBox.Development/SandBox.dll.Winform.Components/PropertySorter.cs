@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.ComponentModel;
 
-namespace SandBox.Winform.Components
+namespace SandBox.dll.Winform.Components
 {
     public class PropertySorter : ExpandableObjectConverter
     {
