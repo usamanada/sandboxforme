@@ -33,7 +33,6 @@
             // 
             // SandboxWinServiceRegistryProcessInstaller
             // 
-            this.SandboxWinServiceRegistryProcessInstaller.Account = System.ServiceProcess.ServiceAccount.LocalSystem;
             this.SandboxWinServiceRegistryProcessInstaller.Password = null;
             this.SandboxWinServiceRegistryProcessInstaller.Username = null;
             // 
