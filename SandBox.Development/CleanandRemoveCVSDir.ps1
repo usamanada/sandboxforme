@@ -81,58 +81,60 @@ function CleanFileRules($szDirPath)
 #------------------------------------------------------------------------------
 function CleanPaths($szPath)
 {
-	write-host("CleanPaths")
 	if (($szPath -ne ($szCurrentDir + '/RECYCLER')) -or ($szPath -ne ($szCurrentDir + '/System Volume Information')))
 	{
 		CleanFileRules($szPath)
 	}
 	
-	$dirs = (Get-Item $szPath -force).GetDirectories()	
-	
-	foreach($dir in $dirs)
+	if(Test-Path $szPath)
 	{
-		$dirPath = Join-Path $szPath $dir
-		if(Test-Path $dirPath)
+		$dirs = (Get-Item $szPath -force).GetDirectories()	
+		
+		foreach($dir in $dirs)
 		{
-			switch($dir.ToString().ToLower())
+			$dirPath = Join-Path $szPath $dir
+			if(Test-Path $dirPath)
 			{
-				"bin"
+				switch($dir.ToString().ToLower())
 				{
-					delDirectory($dirPath)
-					continue
+					"bin"
+					{
+						delDirectory($dirPath)
+						continue
+					}
+					"obj"
+					{
+						delDirectory($dirPath)
+						continue
+					}
+					"debug"
+					{
+						delDirectory($dirPath)
+						continue
+					}
+					"test"
+					{
+						delDirectory($dirPath)
+						continue
+					}
+					"prerelease"
+					{
+						delDirectory($dirPath)
+						continue
+					}
+					"release"
+					{
+						delDirectory($dirPath)
+						continue
+					}
+					"cvs"
+					{
+						delDirectory($dirPath)
+						continue
+					}			
 				}
-				"obj"
-				{
-					delDirectory($dirPath)
-					continue
-				}
-				"debug"
-				{
-					delDirectory($dirPath)
-					continue
-				}
-				"test"
-				{
-					delDirectory($dirPath)
-					continue
-				}
-				"prerelease"
-				{
-					delDirectory($dirPath)
-					continue
-				}
-				"release"
-				{
-					delDirectory($dirPath)
-					continue
-				}
-				"cvs"
-				{
-					delDirectory($dirPath)
-					continue
-				}			
+				CleanPaths($dirPath)
 			}
-			CleanPaths($dirPath)
 		}
 	}
 }
