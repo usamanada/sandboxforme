@@ -1,0 +1,1 @@
+[BASEINSTALLDIR]vs2008_sp1\vs90sp1\SPInstaller.exe /passive /norestart /log [BASEINSTALLDIR]logs\vs_2008log.htm
