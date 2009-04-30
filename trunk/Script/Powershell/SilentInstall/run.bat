@@ -1,0 +1,1 @@
+powershell.exe run.ps1
