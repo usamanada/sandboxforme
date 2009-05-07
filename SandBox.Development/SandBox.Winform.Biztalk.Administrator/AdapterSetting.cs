@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;
-using SandBox.Winform.Components;
+using SandBox.dll.Winform.Components;
 
 namespace SandBox.Winform.Biztalk.Administrator
 {

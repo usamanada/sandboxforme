@@ -56,9 +56,9 @@
     <Compile Include="XmlHelper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SandBox.Winform.Components\SandBox.Winform.Components.csproj">
+    <ProjectReference Include="..\SandBox.dll.Winform.Components\SandBox.dll.Winform.Components.csproj">
       <Project>{558959B8-D389-4BE1-A58C-CB8E2E59EB96}</Project>
-      <Name>SandBox.Winform.Components</Name>
+      <Name>SandBox.dll.Winform.Components</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
