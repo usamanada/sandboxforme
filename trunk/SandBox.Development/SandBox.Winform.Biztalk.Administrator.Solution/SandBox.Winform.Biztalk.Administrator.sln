@@ -29,7 +29,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SandBox.Winform.Biztalk.Adm
 		Release.AspNetCompiler.Debug = "False"
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SandBox.Winform.Components", "..\SandBox.Winform.Components\SandBox.Winform.Components.csproj", "{558959B8-D389-4BE1-A58C-CB8E2E59EB96}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SandBox.dll.Winform.Components", "..\SandBox.dll.Winform.Components\SandBox.dll.Winform.Components.csproj", "{558959B8-D389-4BE1-A58C-CB8E2E59EB96}"
 	ProjectSection(WebsiteProperties) = preProject
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.Debug = "False"
