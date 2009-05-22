@@ -1,1 +1,1 @@
-powershell.exe run.ps1
+powershell.exe .\run.ps1
