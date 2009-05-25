@@ -1,0 +1,3 @@
+[WORKINGDRIVE]
+cd [BASEINSTALLDIR]
+run.bat
