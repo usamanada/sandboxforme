@@ -505,25 +505,6 @@ function cleanup
 		Remove-Item -Path $workingConfigFile
 	}
 }
-function windowsServices()
-{
-	checkWindowsServiceIsRunning("slsvc")
-	checkWindowsServiceIsRunning("WerSvc")
-	checkWindowsServiceIsRunning("EventLog")
-	checkWindowsServiceIsRunning("Winmgmt")
-	checkWindowsServiceIsRunning("TrustedInstaller")
-}
-function checkWindowsServiceIsRunning($name)
-{
-	$s = Get-Service -name $name
-	while($s.Status -ne "Running")
-	{
-		Write-Host ($s.DisplayName + " is not running" + $newline)
-		Start-Sleep -Seconds 5
-		$s = Get-Service -name $name
-	}
-	Write-Host ($s.DisplayName + " is running" + $newline)
-}
 function startLogging()
 {
 	if($MyInvocation.ScriptName.Length -ne 0)
@@ -561,20 +542,15 @@ $script:ForegroundColor = [Console]::ForegroundColor
 #-------------------------------------------------------------------------------
 startLogging
 
-$result = copyFiles
-if( $result -eq $false)
-{
-	Write-Host("copyFiles - false" + $newline)
-	stopLogging
-	return
-}
+$OrderID = readWorkConfig
 
 readConfig
 
-$OrderID = readWorkConfig
-
+Write-Host ("Order ID: " + $OrderID)
 if($OrderID -eq "0")
 {	
+	$result = copyFiles
+	
 	if((initProcess) -eq $false)
 	{
 		Write-Host("initProcess - false" + $newline)
@@ -582,8 +558,6 @@ if($OrderID -eq "0")
 		return
 	}
 }
-
-windowsServices
 
 $result = doWork($OrderID)
 Write-Host("Do Work result: " + $result + $newline)
