@@ -1,16 +1,21 @@
-﻿$finished = $false
-do
+﻿function windowsServices()
 {
-	$process = Get-Process | where-object{$_.Name -match "uedit32"}
-	if($process -ne $null)
-	{
-		Write-Host ("Process still running: " + $process.Name)
-		Start-Sleep -Seconds 1
-	}
-	else
-	{
-		Write-Host ("Process not found")
-		$finished = $true
-	}
+	checkWindowsServiceIsRunning("slsvc")
+	checkWindowsServiceIsRunning("WerSvc")
+	checkWindowsServiceIsRunning("EventLog")
+	checkWindowsServiceIsRunning("Winmgmt")
+	checkWindowsServiceIsRunning("TrustedInstaller")
 }
-while(($finished) -eq $false)
+function checkWindowsServiceIsRunning($name)
+{
+	$s = Get-Service -name $name
+	while($s.Status -ne "Running")
+	{
+		Write-Host ($s.DisplayName + " is not running" + $newline)
+		Start-Sleep -Seconds 5
+		$s = Get-Service -name $name
+	}
+	Write-Host ($s.DisplayName + " is running" + $newline)
+}
+
+windowsServices
