@@ -195,7 +195,7 @@ function readWorkConfig
 	if(Test-Path $workingConfigFile)
 	{
 		$workconfig = [xml](get-content $workingConfigFile)
-		$OrderID = $workconfig.Work.Order
+		$OrderID = $workconfig.Work.Order.ToString()
 	}
 	else
 	{
@@ -544,8 +544,6 @@ startLogging
 
 $OrderID = readWorkConfig
 
-readConfig
-
 Write-Host ("Order ID: " + $OrderID)
 if($OrderID -eq "0")
 {	
@@ -558,6 +556,8 @@ if($OrderID -eq "0")
 		return
 	}
 }
+
+readConfig
 
 $result = doWork($OrderID)
 Write-Host("Do Work result: " + $result + $newline)
