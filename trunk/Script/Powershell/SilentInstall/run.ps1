@@ -21,7 +21,7 @@ function Get-ScriptPath
 	else
 	{
 		Write-Host("Debug Code")
-		$result = "c:\installfiles"
+		$result = "c:\install"
 	}
    	return $result	
 }
@@ -195,7 +195,7 @@ function readWorkConfig
 	if(Test-Path $workingConfigFile)
 	{
 		$workconfig = [xml](get-content $workingConfigFile)
-		$OrderID = $workconfig.Work.Order.ToString()
+		$OrderID = $workconfig.Work.Order
 	}
 	else
 	{
@@ -291,6 +291,7 @@ function updateWorkConfigOrder([string] $sequenceID)
 		}
 	}
 	$xml.save($workingConfigFile)
+	return $true
 }
 function initProcess
 {
@@ -389,20 +390,24 @@ function copyFiles
 }
 function doWork([string] $OrderID)
 {
-
 	$iOrderID = [System.Convert]::ToInt32($OrderID)
 	
 	$iTotalSequenceInstall = $OrderToInstall.Keys.Count
 	while($iOrderID -lt $iTotalSequenceInstall)
 	{
 		$iOrderID += 1
-		$OrderID = $iOrderID.ToString()
+		$CurrentOrderID = $iOrderID.ToString()
 		Write-Host ("Install OrderID: " + $OrderID + $newline)
 		Write-Host (Get-Date)
-		updateWorkConfigOrder($OrderID)
+		$result = updateWorkConfigOrder($CurrentOrderID)
 		
-		$application = $OrderToInstall[$OrderID]
-		
+		$application = $OrderToInstall[$CurrentOrderID]
+		if($application -eq $null)
+		{
+			Write-Error ("Error in Run.config file Install Order: " + $CurrentOrderID)
+			Read-Host("Press key to continue")
+			exit
+		}
 		if( $application.ToLower() -eq "reboot")
 		{			
 			$rebootPath = Join-Path (Get-ScriptPath) "reboot.bat"
@@ -412,6 +417,7 @@ function doWork([string] $OrderID)
 			$p = [Diagnostics.Process]::Start($rebootPath)
 			$p.WaitForExit()
 			return $false
+
 		}
 		elseif($application.ToLower() -eq "sleep")
 		{
@@ -556,7 +562,6 @@ if($OrderID -eq "0")
 		return
 	}
 }
-
 readConfig
 
 $result = doWork($OrderID)
