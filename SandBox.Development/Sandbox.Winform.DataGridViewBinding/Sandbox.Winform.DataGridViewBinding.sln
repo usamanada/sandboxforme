@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox.Winform.DataGridViewBinding", "Sandbox.Winform.DataGridViewBinding\Sandbox.Winform.DataGridViewBinding.csproj", "{C4518619-EABB-496E-B778-B3A5F51CC7AE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C4518619-EABB-496E-B778-B3A5F51CC7AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4518619-EABB-496E-B778-B3A5F51CC7AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4518619-EABB-496E-B778-B3A5F51CC7AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4518619-EABB-496E-B778-B3A5F51CC7AE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,8 +1,9 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
-namespace SandBox.Winform.DataGridViewComboBox
+namespace Sandbox.Winform.DataGridViewBinding
 {
     static class Program
     {
