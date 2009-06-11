@@ -200,7 +200,7 @@ function readWorkConfig
 	else
 	{
 		$OrderID = "0"
-		updateWorkConfigOrder($OrderID)
+		$result = updateWorkConfigOrder($OrderID)
 	}
 	return $OrderID
 }
@@ -213,7 +213,7 @@ function saveExistingAutoLoginToConfig
 		$xml = New-Object xml
 		$root = $xml.CreateElement("Work")
 		$xml.AppendChild($root)
-		$xml.save("c:\test.config")
+		$xml.save($workingConfigFile)
 	}
 	
 	$xml = [xml](Get-Content $workingConfigFile)
@@ -397,7 +397,7 @@ function doWork([string] $OrderID)
 	{
 		$iOrderID += 1
 		$CurrentOrderID = $iOrderID.ToString()
-		Write-Host ("Install OrderID: " + $OrderID + $newline)
+		Write-Host ("Install OrderID: " + $CurrentOrderID + $newline)
 		Write-Host (Get-Date)
 		$result = updateWorkConfigOrder($CurrentOrderID)
 		
