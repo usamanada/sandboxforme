@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Xml;
-using System.Xml.Linq;
+
 using System.Xml.XPath;
 using Microsoft.Win32;
 using SandBox.dll.Common;
@@ -24,11 +24,11 @@ namespace SandBox.Winform.SilentInstall
         private const string ConstDefaultPassword = "DefaultPassword";
         private const string ConstDefaultDomainName = "DefaultDomainName";
 
-        public int currentOrder;
+        public int CurrentOrder;
         public Dictionary<int, string> applications = new Dictionary<int, string>();
         #endregion 
 
-        public string createWorkDir()
+        public string CreateWorkDir()
         {
             string workDir = ConfigurationManager.AppSettings["WorkConfigDir"];
             if (!Directory.Exists(workDir))
@@ -38,13 +38,7 @@ namespace SandBox.Winform.SilentInstall
             DirectoryInfo di = new DirectoryInfo(workDir);
             return di.FullName;
         }
-        private string GetFilePathWorkConfig()
-        {
-            string workDir = createWorkDir();
 
-            return Path.Combine(workDir, ConfigurationManager.AppSettings["WorkConfig"]);
-
-        }
         private bool keyExists(string regKey, string regValue)
         {
             var result = Registry.GetValue(regKey, regValue, null);
@@ -52,6 +46,13 @@ namespace SandBox.Winform.SilentInstall
         }
 
         #region WorkConfig
+        public string GetFilePathWorkConfig()
+        {
+            string workDir = CreateWorkDir();
+
+            return Path.Combine(workDir, ConfigurationManager.AppSettings["WorkConfig"]);
+
+        }
         public void WorkConfigCreate(IList<ListBoxDisplay> installApplications)
         {
             string filePathWorkConfig = GetFilePathWorkConfig();
@@ -115,13 +116,15 @@ namespace SandBox.Winform.SilentInstall
             string filePathWorkConfig = GetFilePathWorkConfig();
             if (File.Exists(filePathWorkConfig))
             {
+                applications.Clear();
+
                 XmlDocument doc = new XmlDocument();
                 doc.Load(filePathWorkConfig);
                 XPathNavigator navigator = doc.CreateNavigator();
                 XPathNodeIterator iter = navigator.Select("//Work/Order");
                 if (iter.MoveNext())
                 {
-                    currentOrder = iter.Current.ValueAsInt;
+                    CurrentOrder = iter.Current.ValueAsInt;
                 }
                 iter = navigator.Select("//Work/ApplicationsToInstall/application");
                 while(iter.MoveNext())
@@ -134,7 +137,14 @@ namespace SandBox.Winform.SilentInstall
                 }
             }
         }
+        private void CleanWorkConfig()
+        {
+            if (File.Exists(GetFilePathWorkConfig()))
+            {
+                File.Delete(GetFilePathWorkConfig());
+            }
 
+        }
         #endregion
 
         #region Auto Login
@@ -209,6 +219,10 @@ namespace SandBox.Winform.SilentInstall
         public void ReadAutoLoginDetails()
         {
             string filePathWorkConfig = GetFilePathWorkConfig();
+            _defaultUserName = "";
+            _defaultPassword = "";
+            _defaultDomainName = "";
+
             if (File.Exists(filePathWorkConfig))
             {
                 XmlDocument doc = new XmlDocument();
@@ -252,7 +266,7 @@ namespace SandBox.Winform.SilentInstall
             string filePathContinueDest = Path.Combine(dirStartUp, fileContineBat);
             if (!File.Exists(filePathContinueDest))
             {
-                string workDir = createWorkDir();
+                string workDir = CreateWorkDir();
                 string filePathContuneSource = Path.Combine(workDir, fileContineBat);
                 if (!File.Exists(filePathContuneSource))
                 {
@@ -267,23 +281,73 @@ namespace SandBox.Winform.SilentInstall
             string[] files = Directory.GetFiles(ConfigurationManager.AppSettings["ConfigDir"]);
 
             string tempFile = Guid.NewGuid() + ".tmp";
-            DirectoryInfo diConfig = new DirectoryInfo(ConfigurationManager.AppSettings["ConfigDir"]);
+            DirectoryInfo diCurrent = new DirectoryInfo(Environment.CurrentDirectory);
 
             foreach (string file in files)
             {
                 File.Copy(file, tempFile, true);
 
-                FileHelper.ReplaceInFile(tempFile, @"\[WORKINGDRIVE\]", diConfig.Root.ToString());
-                FileHelper.ReplaceInFile(tempFile, @"\[BASEINSTALLDIR\]", diConfig.FullName);
+                FileHelper.ReplaceInFile(tempFile, @"\[WORKINGDRIVE\]",
+                                         diCurrent.Root.ToString().Substring(0,diCurrent.Root.ToString().Length - 1));
+                FileHelper.ReplaceInFile(tempFile, @"\[BASEINSTALLDIR\]", diCurrent.FullName + "\\");
 
                 FileInfo fi = new FileInfo(file);
-                File.Copy(tempFile, Path.Combine(createWorkDir(), fi.Name), true);
+                File.Copy(tempFile, Path.Combine(CreateWorkDir(), fi.Name), true);
             }
 
             File.Delete(tempFile);
+
+            CopyContineBatch();
         }
         #endregion
 
-       
+        #region Log File
+        public string LogFilePath()
+        {
+            return Path.Combine(CreateWorkDir(), ConfigurationManager.AppSettings["LogFile"]);
+        }
+
+        public void LogFileDelete()
+        {
+            if(File.Exists(LogFilePath()))
+            {
+                File.Delete(LogFilePath());
+            }
+        }
+        public string ApplicationLogFilePath()
+        {
+            return Path.Combine(CreateWorkDir(), ConfigurationManager.AppSettings["ApplicationLogFile"]);
+        }
+
+        public void ApplicationLogFileDelete()
+        {
+            if(File.Exists(ApplicationLogFilePath()))
+            {
+                File.Delete(ApplicationLogFilePath());
+            }
+        }
+        
+        #endregion
+
+        #region Clean
+        public void CleanAll()
+        {
+            LogFileDelete();
+            ApplicationLogFileDelete();
+            CleanContinueBatch();
+            CleanAutoLoginRegDetails();
+            CleanWorkConfig();
+            if(_defaultUserName == String.Empty)
+            {
+                SetAutoLoginRegDetails(_defaultUserName, _defaultDomainName, _defaultPassword);
+            }
+        }
+
+        public void CleanAutoStart()
+        {
+            CleanContinueBatch();
+            CleanAutoLoginRegDetails();
+        }
+        #endregion
     }
 }
