@@ -114,5 +114,18 @@ namespace SandBox.Winform.SilentInstall
                 base["Description"] = value;
             }
         }
+
+        [ConfigurationProperty("ExitCode", IsKey = false, IsRequired = true)]
+        public string ExitCode
+        {
+            get
+            {
+                return (string)base["ExitCode"];
+            }
+            set
+            {
+                base["ExitCode"] = value;
+            }
+        }
     }
 }

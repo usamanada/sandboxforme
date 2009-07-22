@@ -17,6 +17,7 @@ namespace SandBox.Winform.SilentInstall
         {
             InitializeComponent();
         }
+        #region private Members
         private InstallHelper _iHelper = new InstallHelper();
         private EnvironmentsSection _es;
         private InstallApplicationsSection _ia;
@@ -34,8 +35,15 @@ namespace SandBox.Winform.SilentInstall
             NoReboot,
             Reboot
         }
-        private DataTable dtProcess = new DataTable();
-        private void setLabelCredentials(ControlState cs)
+        private enum ProcessExit
+        {
+            Complete,
+            Error,
+            Reboot
+        }
+        #endregion
+
+        private void SetLabelCredentials(ControlState cs)
         {
             switch (cs)
             {
@@ -57,19 +65,19 @@ namespace SandBox.Winform.SilentInstall
             }
 
         }
-        private void setRebootRequired(ControlState cs)
+        private void SetRebootRequired(ControlState cs)
         {
             switch (cs)
             {
                 case ControlState.Reboot:
                     gbxAutoLogin.Enabled = true;
                     btnInstall.Enabled = false;
-                    setLabelCredentials(ControlState.HideAll);
+                    SetLabelCredentials(ControlState.HideAll);
                     break;
                 case ControlState.NoReboot:
                     gbxAutoLogin.Enabled = false;
                     btnInstall.Enabled = true;
-                    setLabelCredentials(ControlState.HideAll);
+                    SetLabelCredentials(ControlState.HideAll);
                     break;
                 default:
                     break;
@@ -85,7 +93,7 @@ namespace SandBox.Winform.SilentInstall
                 lbxInstall.Items.Clear();
                 lbxAvailable.Items.Clear();
                 lstInstalling.Clear();
-                setRebootRequired(ControlState.NoReboot);
+                SetRebootRequired(ControlState.NoReboot);
 
                 EnvironmentElement en = _es.EnvironmentItems[kp.Key];
 
@@ -95,14 +103,14 @@ namespace SandBox.Winform.SilentInstall
                     {
                         lstInstalling.Add(ae.Value);
 
-                        lbxInstallAdd(new ListBoxDisplay() { Display = _ia.InstallApplicationsItems[ae.Value].Description, Value = ae.Value });
+                        LbxInstallAdd(new ListBoxDisplay { Display = _ia.InstallApplicationsItems[ae.Value].Description, Value = ae.Value });
                     }
                 }
                 var o = _dInstallApplications.Keys.Except(lstInstalling);
 
                 foreach (string application in o.ToArray())
                 {
-                    lbxAvailable.Items.Add(new ListBoxDisplay() { Display = _ia.InstallApplicationsItems[application].Description, Value = application });
+                    lbxAvailable.Items.Add(new ListBoxDisplay { Display = _ia.InstallApplicationsItems[application].Description, Value = application });
                 }
 
 
@@ -124,7 +132,6 @@ namespace SandBox.Winform.SilentInstall
                 }
             }
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             try
@@ -160,26 +167,69 @@ namespace SandBox.Winform.SilentInstall
                 txtDomain.Text = Environment.UserDomainName;
 
                 btnInstall.Enabled = false;
-                setLabelCredentials(ControlState.HideAll);
-
-                dtProcess.Columns.Add("Status", typeof(string));
-                dtProcess.Columns.Add("Order", typeof(int));
-                dtProcess.Columns.Add("Description", typeof(string));
-
-                dgvProgress.DataSource = dtProcess;
+                SetLabelCredentials(ControlState.HideAll);
 
                 lbxInstall.DisplayMember = "Display";
                 lbxInstall.ValueMember = "Value";
 
                 lbxAvailable.DisplayMember = "Display";
                 lbxAvailable.ValueMember = "Value";
+
+                CheckToContinue();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message + Environment.NewLine + ex.StackTrace);
+                Console.WriteLine(ex.Message + Environment.NewLine + ex.StackTrace);
             }
         }
-
+        private void SetDataGridViewSelectRow(int rowIndex)
+        {
+            dgvProgress.ClearSelection();
+            dgvProgress.FirstDisplayedScrollingRowIndex = rowIndex;
+            dgvProgress.CurrentCell = dgvProgress[0, rowIndex];
+            dgvProgress.Rows[rowIndex].Selected = false;
+        }
+        private void CheckToContinue()
+        {
+            if (File.Exists(_iHelper.GetFilePathWorkConfig()))
+            {
+                _iHelper.WorkConfigReadApplications();
+                if (_iHelper.CurrentOrder > 0)
+                {
+                    DoWork();
+                }
+            }
+        }
+        private bool CheckBatchFilesExist()
+        {
+            bool result = true;
+            List<ListBoxDisplay> installApplications = (from ListBoxDisplay item in lbxInstall.Items select item).ToList();
+            for (int rowIndex = 0; rowIndex < installApplications.Count; rowIndex++)
+            {
+                string executeApp = _ia.InstallApplicationsItems[installApplications[rowIndex].Value.ToString()].Execute;
+                executeApp = executeApp.Replace("[BASEINSTALLDIR]", _iHelper.CreateWorkDir());
+                if (!File.Exists(executeApp))
+                {
+                    dgvProgress.Rows[rowIndex].Cells["dgcProgImage"].Value = Properties.Resources.Critical;
+                    dgvProgress.Rows[rowIndex].Cells["dgcProgMessage"].Value = string.Format("Batch file {0} not found.", executeApp);
+                    result = false;
+                }
+                else
+                {
+                    if (rowIndex >= _iHelper.CurrentOrder)
+                    {
+                        dgvProgress.Rows[rowIndex].Cells["dgcProgImage"].Value = Properties.Resources.empty;
+                    }
+                }
+                SetDataGridViewSelectRow(rowIndex);
+            }
+            if (result == false)
+            {
+                MessageBox.Show("Address the following errors before continuing", "Error", MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
+            return result;
+        }
         private void btnInstall_Click(object sender, EventArgs e)
         {
             if (gbxAutoLogin.Enabled)
@@ -191,72 +241,215 @@ namespace SandBox.Winform.SilentInstall
             _iHelper.CopyBatchFiles();
             DoWork();
         }
+        private void btnCheck_Click(object sender, EventArgs e)
+        {
+            if (txtPassword.Text != txtConfirmPassword.Text)
+            {
+                lblInvalidUserCredentials.Text = "Passwords do not match";
+                SetLabelCredentials(ControlState.InValidUser);
+                return;
+            }
+            ImpersonateUser iU = new ImpersonateUser();
+            //txtDomain.Text + @"\" +
+            string domainUser = txtUserName.Text;
+            if (iU.Impersonate("remoteMachine", domainUser, txtPassword.Text))
+            {
+                iU.Undo();
+                SetLabelCredentials(ControlState.ValidUser);
+                btnInstall.Enabled = true;
+            }
+            else
+            {
+                lblInvalidUserCredentials.Text = "InValid Username and Password Entered";
+                SetLabelCredentials(ControlState.InValidUser);
+            }
+        }
+        
+        #region Run Processes
         private void DoWork()
         {
-            _iHelper.WorkConfigReadApplications();
-
-            for (int index = 0; index < _iHelper.applications.Count; index++)
+            try
             {
-                DataRow dr = dtProcess.NewRow();
-                dr["Status"] = "";
-                dr["Order"] = (index + 1).ToString();
-                dr["Description"] = _ia.InstallApplicationsItems[_iHelper.applications[index + 1]].Description;
-                dtProcess.Rows.Add(dr);
+                tbcInstall.SelectedIndex = tbcInstall.TabPages["tbpProgress"].TabIndex;
+
+                _iHelper.WorkConfigReadApplications();
+
+                rtbLog.Clear();
+                dgvProgress.Rows.Clear();
+
+                if (File.Exists(_iHelper.GetFilePathWorkConfig()))
+                {
+                    if (File.Exists(_iHelper.LogFilePath()))
+                    {
+                        rtbLog.LoadFile(_iHelper.LogFilePath());
+                        rtbLog.Refresh();
+                    }
+                    
+                    for (int index = 0; index < _iHelper.applications.Count; index++)
+                    {
+                        int rowId = dgvProgress.Rows.Add();
+                        if (index < _iHelper.CurrentOrder)
+                        {
+                            dgvProgress.Rows[rowId].Cells["dgcProgImage"].Value = Properties.Resources.OK;
+                        }
+                        else
+                        {
+                            dgvProgress.Rows[rowId].Cells["dgcProgImage"].Value = Properties.Resources.empty;
+                        }
+                        dgvProgress.Rows[rowId].Cells["dgcProgOrder"].Value = (index + 1).ToString();
+                        dgvProgress.Rows[rowId].Cells["dgcProgApplication"].Value =
+                            _ia.InstallApplicationsItems[_iHelper.applications[index + 1]].Description;
+                        SetDataGridViewSelectRow(rowId);
+                    }
+                    dgvProgress.AutoResizeColumns();
+                    if (CheckBatchFilesExist())
+                    {
+                        processWorker.RunWorkerAsync();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + Environment.NewLine + ex.StackTrace, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            processWorker.RunWorkerAsync(1);
         }
-
-        private void StartProcessInstallation()
+        private void processWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            while (_iHelper.currentOrder < _iHelper.applications.Count)
+            try
             {
-                processInstallation(_iHelper.currentOrder++);
+                if (e.ProgressPercentage == 1)
+                {
+                    int rowIndex = ((ProgressObject)e.UserState).index - 1;
+                    dgvProgress.Rows[rowIndex].Cells["dgcProgImage"].Value = Properties.Resources.OK;
+                    SetDataGridViewSelectRow(rowIndex);
+                }
+                else if (e.ProgressPercentage == 2)
+                {
+                    int rowIndex = ((ProgressObject)e.UserState).index - 1;
+                    dgvProgress.Rows[rowIndex].Cells["dgcProgImage"].Value = Properties.Resources.Run;
+                    SetDataGridViewSelectRow(rowIndex);
+                }
+                else if (e.ProgressPercentage == 3)
+                {
+                    ProgressObject po = ((ProgressObject)e.UserState);
+                    int rowIndex = po.index - 1;
+                    dgvProgress.Rows[rowIndex].Cells["dgcProgImage"].Value = Properties.Resources.Critical;
+                    dgvProgress.Rows[rowIndex].Cells["dgcProgMessage"].Value = po.message;
+                    SetDataGridViewSelectRow(rowIndex);
+                }
+                else
+                {
+                    rtbLog.AppendText(e.UserState.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + Environment.NewLine + ex.StackTrace, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void processInstallation(int index)
+        #region Background Thread
+        
+        private ProcessExit StartProcessInstallation()
         {
-            string executeApp = _ia.InstallApplicationsItems[_iHelper.applications[index + 1]].Execute;
-            executeApp = executeApp.Replace("[BASEINSTALLDIR]", _iHelper.createWorkDir());
-            
-            string message = DateTime.Now.ToString() + " Starting to Install " +
-                             _ia.InstallApplicationsItems[_iHelper.applications[index + 1]].Description +
-                             Environment.NewLine;
-            
+            ProcessExit pe = ProcessExit.Complete;
+            try
+            {
+                
+                while (_iHelper.CurrentOrder < _iHelper.applications.Count)
+                {
+                    _iHelper.SetOrder(++_iHelper.CurrentOrder);
+
+                    pe = ProcessInstallation(_iHelper.CurrentOrder);
+
+                    if (pe != ProcessExit.Complete)
+                        return pe;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message + Environment.NewLine + ex.StackTrace);
+            }
+            return pe;
+        }
+
+        private ProcessExit ProcessInstallation(int index)
+        {
+            string executeApp = _ia.InstallApplicationsItems[_iHelper.applications[index]].Execute;
+            executeApp = executeApp.Replace("[BASEINSTALLDIR]", _iHelper.CreateWorkDir());
+
+            processWorker.ReportProgress(2, new ProgressObject { index = index, message = "" });
+            processWorker.ReportProgress(0, string.Format("{0} Step: {1}{2}", DateTime.Now, index, Environment.NewLine));
+            string message = string.Format("{0} Starting to Install {1}{2}", DateTime.Now, _ia.InstallApplicationsItems[_iHelper.applications[index]].Description, Environment.NewLine);
+
             processWorker.ReportProgress(0, message);
-            
             ProcessStartInfo startInfo = new ProcessStartInfo();
             Process p = new Process();
             startInfo.CreateNoWindow = true;
-            startInfo.RedirectStandardOutput = true;
-            startInfo.RedirectStandardInput = true;
             startInfo.UseShellExecute = false;
             startInfo.FileName = executeApp;
-
+            startInfo.Arguments = " >> " + _iHelper.ApplicationLogFilePath();
             p.StartInfo = startInfo;
 
-
-            p.OutputDataReceived += new DataReceivedEventHandler(p_OutputDataReceived);
-            startInfo.RedirectStandardInput = true;
             p.Start();
-            p.BeginOutputReadLine();
             p.WaitForExit();
 
-            processWorker.ReportProgress(0, DateTime.Now.ToString() + " Complete: " + _iHelper.applications[index + 1] + Environment.NewLine);
-
-        }
-
-        void p_OutputDataReceived(object sender, System.Diagnostics.DataReceivedEventArgs e)
-        {
-
-            if (!String.IsNullOrEmpty(e.Data))
+            using (StreamReader sr = new StreamReader(_iHelper.ApplicationLogFilePath()))
             {
-                processWorker.ReportProgress(0, DateTime.Now.ToString() + " Progress: " + e.Data + Environment.NewLine);
+                processWorker.ReportProgress(0, sr.ReadToEnd());
+                processWorker.ReportProgress(0, Environment.NewLine);
+            }            
+
+            _iHelper.ApplicationLogFileDelete();
+
+            processWorker.ReportProgress(0, DateTime.Now + " Exit Code: " + p.ExitCode + Environment.NewLine);
+            string exitCodes = _ia.InstallApplicationsItems[_iHelper.applications[index]].ExitCode;
+
+            List<string> lstExitCodes = exitCodes.Split(new char[] { ',' }).ToList();
+            if (!lstExitCodes.Contains(p.ExitCode.ToString()))
+            {
+                processWorker.ReportProgress(3, new ProgressObject { index = index, message = "The install application has returned an invalid exit code of: " + p.ExitCode + ". Valid exit codes are : " + exitCodes });
+                return ProcessExit.Error;
             }
+
+            processWorker.ReportProgress(1, new ProgressObject { index = index, message = "" });
+            processWorker.ReportProgress(0, DateTime.Now + " Complete: " + _iHelper.applications[index] + Environment.NewLine + Environment.NewLine);
+
+            if (_iHelper.applications[index] == "Reboot")
+            {
+                rtbLog.BeginInvoke(new MethodInvoker(delegate { rtbLog.SaveFile(_iHelper.LogFilePath()); }));
+                return ProcessExit.Reboot;
+            }
+            return ProcessExit.Complete;
         }
 
+        private void processWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            try
+            {
+                ProcessExit pe = StartProcessInstallation();
+                if (pe == ProcessExit.Reboot)
+                {
+                    Application.Exit();
+                    return;
+                }
+                else if (pe == ProcessExit.Error)
+                {
+                    MessageBox.Show("An error has been detected during the installation process.", "Error",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
+                _iHelper.CleanAll();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + Environment.NewLine + ex.StackTrace, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
+        }
+        #endregion
+        #endregion
+        #region Move List Items
         private void btnRight_Click(object sender, EventArgs e)
         {
             if (lbxInstall.SelectedItem == null)
@@ -265,32 +458,32 @@ namespace SandBox.Winform.SilentInstall
             }
 
             lbxAvailable.Items.Add(lbxInstall.SelectedItem.ToString());
-            lbxInstallRemove((ListBoxDisplay)lbxInstall.SelectedItem);
+            LbxInstallRemove((ListBoxDisplay)lbxInstall.SelectedItem);
         }
 
         private void btnLeft_Click(object sender, EventArgs e)
         {
             if (lbxAvailable.SelectedItem != null)
             {
-                lbxInstallAdd((ListBoxDisplay)lbxAvailable.SelectedItem);
+                LbxInstallAdd((ListBoxDisplay)lbxAvailable.SelectedItem);
                 lbxAvailable.Items.Remove(lbxAvailable.SelectedItem);
             }
         }
 
-        private void lbxInstallAdd(ListBoxDisplay application)
+        private void LbxInstallAdd(ListBoxDisplay application)
         {
             lbxInstall.Items.Add(application);
             if (application.Display == ConstReboot)
             {
-                setRebootRequired(ControlState.Reboot);
+                SetRebootRequired(ControlState.Reboot);
             }
         }
-        private void lbxInstallRemove(ListBoxDisplay application)
+        private void LbxInstallRemove(ListBoxDisplay application)
         {
             lbxInstall.Items.Remove(application);
             if (application.Display == ConstReboot)
             {
-                setRebootRequired(ControlState.NoReboot);
+                SetRebootRequired(ControlState.NoReboot);
             }
         }
 
@@ -325,75 +518,21 @@ namespace SandBox.Winform.SilentInstall
                 }
             }
         }
-
-        private void btnCleanAutoLogins_Click(object sender, EventArgs e)
+        #endregion
+        #region Admin Function
+        private void btnCreateWorkConfig_Click(object sender, EventArgs e)
         {
-            _iHelper.CleanAutoLoginRegDetails();
+            _iHelper.WorkConfigCreate((from ListBoxDisplay item in lbxInstall.Items select item).ToList());
         }
-
-        private void btnCleanContineBat_Click(object sender, EventArgs e)
-        {
-            _iHelper.CleanContinueBatch();
-        }
-
-        private void btnCopyContineBat_Click(object sender, EventArgs e)
-        {
-            _iHelper.CopyContineBatch();
-        }
-
-        private void btnCheck_Click(object sender, EventArgs e)
-        {
-            if (txtPassword.Text != txtConfirmPassword.Text)
-            {
-                lblInvalidUserCredentials.Text = "Passwords do not match";
-                setLabelCredentials(ControlState.InValidUser);
-                return;
-            }
-            ImpersonateUser iU = new ImpersonateUser();
-            //txtDomain.Text + @"\" +
-            string domainUser = txtUserName.Text;
-            if (iU.Impersonate("remoteMachine", domainUser, txtPassword.Text))
-            {
-                iU.Undo();
-                setLabelCredentials(ControlState.ValidUser);
-                btnInstall.Enabled = true;
-            }
-            else
-            {
-                lblInvalidUserCredentials.Text = "InValid Username and Password Entered";
-                setLabelCredentials(ControlState.InValidUser);
-            }
-        }
-
-        private void btnReadWorkAutoLogin_Click(object sender, EventArgs e)
-        {
-            _iHelper.ReadAutoLoginDetails();
-        }
-
-        private void btnIncreamentOrder_Click(object sender, EventArgs e)
-        {
-            _iHelper.SetOrder(1);
-        }
-
-        private void btnCopyFiles_Click(object sender, EventArgs e)
+        private void btnCopyBatchFiles_Click(object sender, EventArgs e)
         {
             _iHelper.CopyBatchFiles();
         }
-
-
-        private void btnProgress_Click(object sender, EventArgs e)
+        private void btnCleanAutoLogins_Click(object sender, EventArgs e)
         {
-            DoWork();
+            _iHelper.CleanAutoStart();
         }
+        #endregion
 
-        private void processWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
-        {
-            StartProcessInstallation();
-        }
-
-        private void processWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
-            rtbLog.AppendText(e.UserState.ToString());
-        }
     }
 }
