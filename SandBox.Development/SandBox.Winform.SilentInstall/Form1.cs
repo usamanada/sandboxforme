@@ -33,7 +33,9 @@ namespace SandBox.Winform.SilentInstall
             InValidUser,
             HideAll,
             NoReboot,
-            Reboot
+            Reboot,
+            Disable,
+            Enable
         }
         private enum ProcessExit
         {
@@ -83,6 +85,20 @@ namespace SandBox.Winform.SilentInstall
                     break;
             }
 
+        }
+        private void SetProcesingControl(ControlState cs)
+        {
+            switch (cs)
+            {
+                case ControlState.Disable:
+                    tbpInstall.Enabled = false;
+                    tbpAdmin.Enabled = false;
+                    break;
+                case ControlState.Enable:
+                    tbpInstall.Enabled = true;
+                    tbpAdmin.Enabled = true;
+                    break;
+            }
         }
         private void cbxEnvironments_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -304,6 +320,7 @@ namespace SandBox.Winform.SilentInstall
                     dgvProgress.AutoResizeColumns();
                     if (CheckBatchFilesExist())
                     {
+                        SetProcesingControl(ControlState.Disable);
                         processWorker.RunWorkerAsync();
                     }
                 }
@@ -347,6 +364,11 @@ namespace SandBox.Winform.SilentInstall
             {
                 MessageBox.Show(ex.Message + Environment.NewLine + ex.StackTrace, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void processWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            SetProcesingControl(ControlState.Enable);
         }
         #region Background Thread
         
@@ -394,11 +416,14 @@ namespace SandBox.Winform.SilentInstall
             p.Start();
             p.WaitForExit();
 
-            using (StreamReader sr = new StreamReader(_iHelper.ApplicationLogFilePath()))
+            if (File.Exists(_iHelper.ApplicationLogFilePath()))
             {
-                processWorker.ReportProgress(0, sr.ReadToEnd());
-                processWorker.ReportProgress(0, Environment.NewLine);
-            }            
+                using (StreamReader sr = new StreamReader(_iHelper.ApplicationLogFilePath()))
+                {
+                    processWorker.ReportProgress(0, sr.ReadToEnd());
+                    processWorker.ReportProgress(0, Environment.NewLine);
+                }
+            }
 
             _iHelper.ApplicationLogFileDelete();
 
@@ -533,6 +558,8 @@ namespace SandBox.Winform.SilentInstall
             _iHelper.CleanAutoStart();
         }
         #endregion
+
+        
 
     }
 }
