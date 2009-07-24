@@ -54,10 +54,21 @@ namespace UIToolbox
 			this.m_radioButton.Location = new System.Drawing.Point(RADIOBUTTON_X_OFFSET, RADIOBUTTON_Y_OFFSET);
 			this.Checked = false;
 
-			// Set the color of the RadioButon's text to the color of the label in a standard groupbox control.
-			VisualStyleRenderer vsr = new VisualStyleRenderer(VisualStyleElement.Button.GroupBox.Normal);
-			Color groupBoxTextColor = vsr.GetColor(ColorProperty.TextColor);
-			this.m_radioButton.ForeColor = groupBoxTextColor;
+			//Set the color of the RadioButon's text to the color of the label in a standard groupbox control.
+		    try
+		    {
+                if (VisualStyleInformation.IsEnabledByUser)
+                {
+                    VisualStyleRenderer vsr = new VisualStyleRenderer(VisualStyleElement.Button.GroupBox.Normal);
+                    Color groupBoxTextColor = vsr.GetColor(ColorProperty.TextColor);
+                    this.m_radioButton.ForeColor = groupBoxTextColor;
+                }
+		    }
+		    catch (Exception)
+		    {
+		        
+		    }
+            
 		}
 
 		#region Properties
