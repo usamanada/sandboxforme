@@ -30,6 +30,14 @@
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tvSettings = new System.Windows.Forms.TreeView();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.activateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button2 = new System.Windows.Forms.Button();
+            this.cbxNetworkInterface = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rbpIP = new UIToolbox.RadioButtonPanel();
             this.rgbIPStatic = new UIToolbox.RadioGroupBox();
@@ -47,21 +55,15 @@
             this.lblAlternativeDnsServer = new System.Windows.Forms.Label();
             this.iacAlternativeDnsServer = new IPAddressControlLib.IPAddressControl();
             this.rbnDNSDynamic = new System.Windows.Forms.RadioButton();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.activateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.rbpIP.SuspendLayout();
             this.rgbIPStatic.SuspendLayout();
             this.rbpDNS.SuspendLayout();
             this.rgbDnsStatic.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -77,9 +79,10 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.button2);
+            this.splitContainer1.Panel2.Controls.Add(this.cbxNetworkInterface);
             this.splitContainer1.Panel2.Controls.Add(this.button1);
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
-            this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
             this.splitContainer1.Size = new System.Drawing.Size(498, 518);
             this.splitContainer1.SplitterDistance = 165;
             this.splitContainer1.TabIndex = 0;
@@ -92,11 +95,77 @@
             this.tvSettings.Size = new System.Drawing.Size(165, 494);
             this.tvSettings.TabIndex = 1;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(165, 24);
+            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newToolStripMenuItem,
+            this.saveToolStripMenuItem,
+            this.activateToolStripMenuItem});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(45, 20);
+            this.toolStripMenuItem1.Text = "Menu";
+            // 
+            // newToolStripMenuItem
+            // 
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.newToolStripMenuItem.Text = "New";
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.saveToolStripMenuItem.Text = "Save";
+            // 
+            // activateToolStripMenuItem
+            // 
+            this.activateToolStripMenuItem.Name = "activateToolStripMenuItem";
+            this.activateToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.activateToolStripMenuItem.Text = "Activate";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(138, 429);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // cbxNetworkInterface
+            // 
+            this.cbxNetworkInterface.FormattingEnabled = true;
+            this.cbxNetworkInterface.Location = new System.Drawing.Point(7, 15);
+            this.cbxNetworkInterface.Name = "cbxNetworkInterface";
+            this.cbxNetworkInterface.Size = new System.Drawing.Size(301, 21);
+            this.cbxNetworkInterface.TabIndex = 2;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(138, 400);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.rbpIP);
             this.groupBox1.Controls.Add(this.rbpDNS);
-            this.groupBox1.Location = new System.Drawing.Point(3, 12);
+            this.groupBox1.Location = new System.Drawing.Point(3, 42);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(305, 320);
             this.groupBox1.TabIndex = 0;
@@ -110,7 +179,7 @@
             this.rbpIP.Location = new System.Drawing.Point(1, 19);
             this.rbpIP.Name = "rbpIP";
             this.rbpIP.Size = new System.Drawing.Size(298, 160);
-            this.rbpIP.TabIndex = 5;
+            this.rbpIP.TabIndex = 0;
             // 
             // rgbIPStatic
             // 
@@ -123,7 +192,7 @@
             this.rgbIPStatic.Location = new System.Drawing.Point(3, 26);
             this.rgbIPStatic.Name = "rgbIPStatic";
             this.rgbIPStatic.Size = new System.Drawing.Size(289, 128);
-            this.rgbIPStatic.TabIndex = 3;
+            this.rgbIPStatic.TabIndex = 1;
             this.rgbIPStatic.TabStop = false;
             this.rgbIPStatic.Text = "Use the following IP address:";
             // 
@@ -148,9 +217,8 @@
             this.iacDefaultGateway.Name = "iacDefaultGateway";
             this.iacDefaultGateway.ReadOnly = false;
             this.iacDefaultGateway.Size = new System.Drawing.Size(131, 20);
-            this.iacDefaultGateway.TabIndex = 10;
+            this.iacDefaultGateway.TabIndex = 2;
             this.iacDefaultGateway.Text = "...";
-            this.iacDefaultGateway.Click += new System.EventHandler(this.ipAddressControl8_Click);
             // 
             // lblIPAddress
             // 
@@ -173,7 +241,7 @@
             this.iacIPAddress.Name = "iacIPAddress";
             this.iacIPAddress.ReadOnly = false;
             this.iacIPAddress.Size = new System.Drawing.Size(131, 20);
-            this.iacIPAddress.TabIndex = 8;
+            this.iacIPAddress.TabIndex = 0;
             this.iacIPAddress.Text = "...";
             // 
             // lblSubnetMask
@@ -197,7 +265,7 @@
             this.iacSubnetMask.Name = "iacSubnetMask";
             this.iacSubnetMask.ReadOnly = false;
             this.iacSubnetMask.Size = new System.Drawing.Size(131, 20);
-            this.iacSubnetMask.TabIndex = 6;
+            this.iacSubnetMask.TabIndex = 1;
             this.iacSubnetMask.Text = "...";
             // 
             // rbnIPDynamic
@@ -206,7 +274,7 @@
             this.rbnIPDynamic.Location = new System.Drawing.Point(13, 3);
             this.rbnIPDynamic.Name = "rbnIPDynamic";
             this.rbnIPDynamic.Size = new System.Drawing.Size(188, 17);
-            this.rbnIPDynamic.TabIndex = 2;
+            this.rbnIPDynamic.TabIndex = 0;
             this.rbnIPDynamic.TabStop = true;
             this.rbnIPDynamic.Text = "Obtain an IP address automatically";
             this.rbnIPDynamic.UseVisualStyleBackColor = true;
@@ -218,7 +286,7 @@
             this.rbpDNS.Location = new System.Drawing.Point(1, 179);
             this.rbpDNS.Name = "rbpDNS";
             this.rbpDNS.Size = new System.Drawing.Size(298, 133);
-            this.rbpDNS.TabIndex = 4;
+            this.rbpDNS.TabIndex = 1;
             // 
             // rgbDnsStatic
             // 
@@ -229,7 +297,7 @@
             this.rgbDnsStatic.Location = new System.Drawing.Point(3, 26);
             this.rgbDnsStatic.Name = "rgbDnsStatic";
             this.rgbDnsStatic.Size = new System.Drawing.Size(289, 100);
-            this.rgbDnsStatic.TabIndex = 3;
+            this.rgbDnsStatic.TabIndex = 1;
             this.rgbDnsStatic.TabStop = false;
             this.rgbDnsStatic.Text = "Use the following DNS server addresses:";
             // 
@@ -254,7 +322,7 @@
             this.iacPreferredDnsServer.Name = "iacPreferredDnsServer";
             this.iacPreferredDnsServer.ReadOnly = false;
             this.iacPreferredDnsServer.Size = new System.Drawing.Size(131, 20);
-            this.iacPreferredDnsServer.TabIndex = 8;
+            this.iacPreferredDnsServer.TabIndex = 0;
             this.iacPreferredDnsServer.Text = "...";
             // 
             // lblAlternativeDnsServer
@@ -278,7 +346,7 @@
             this.iacAlternativeDnsServer.Name = "iacAlternativeDnsServer";
             this.iacAlternativeDnsServer.ReadOnly = false;
             this.iacAlternativeDnsServer.Size = new System.Drawing.Size(131, 20);
-            this.iacAlternativeDnsServer.TabIndex = 6;
+            this.iacAlternativeDnsServer.TabIndex = 1;
             this.iacAlternativeDnsServer.Text = "...";
             // 
             // rbnDNSDynamic
@@ -287,58 +355,10 @@
             this.rbnDNSDynamic.Location = new System.Drawing.Point(13, 3);
             this.rbnDNSDynamic.Name = "rbnDNSDynamic";
             this.rbnDNSDynamic.Size = new System.Drawing.Size(218, 17);
-            this.rbnDNSDynamic.TabIndex = 2;
+            this.rbnDNSDynamic.TabIndex = 0;
             this.rbnDNSDynamic.TabStop = true;
             this.rbnDNSDynamic.Text = "Obtain DNS server address automatically";
             this.rbnDNSDynamic.UseVisualStyleBackColor = true;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(165, 24);
-            this.menuStrip1.TabIndex = 2;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newToolStripMenuItem,
-            this.saveToolStripMenuItem,
-            this.activateToolStripMenuItem});
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(50, 20);
-            this.toolStripMenuItem1.Text = "Menu";
-            // 
-            // newToolStripMenuItem
-            // 
-            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.newToolStripMenuItem.Text = "New";
-            // 
-            // saveToolStripMenuItem
-            // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.saveToolStripMenuItem.Text = "Save";
-            // 
-            // activateToolStripMenuItem
-            // 
-            this.activateToolStripMenuItem.Name = "activateToolStripMenuItem";
-            this.activateToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.activateToolStripMenuItem.Text = "Activate";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(27, 369);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
@@ -354,6 +374,8 @@
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.rbpIP.ResumeLayout(false);
             this.rbpIP.PerformLayout();
@@ -363,8 +385,6 @@
             this.rbpDNS.PerformLayout();
             this.rgbDnsStatic.ResumeLayout(false);
             this.rgbDnsStatic.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -396,6 +416,8 @@
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem activateToolStripMenuItem;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox cbxNetworkInterface;
+        private System.Windows.Forms.Button button2;
     }
 }
 
