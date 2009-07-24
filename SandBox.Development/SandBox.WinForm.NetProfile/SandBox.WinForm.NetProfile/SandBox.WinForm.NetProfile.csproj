@@ -33,10 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="IPAddressControlLib, Version=1.1.3440.37712, Culture=neutral, PublicKeyToken=55e96405d8fd6d61, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\StandAloneApplications\WinFormComponets\IPAddressControlLib\bin\Release\IPAddressControlLib.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -56,10 +52,6 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="UIToolbox.RadioGroupBox, Version=1.1.0.0, Culture=neutral, PublicKeyToken=1e4be6f27f1c1744, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\StandAloneApplications\WinFormComponets\CheckGroupBoxAndRadioGroupBox\RadioGroupBox\RadioGroupBox\bin\Release\UIToolbox.RadioGroupBox.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Form1.cs">
@@ -91,6 +83,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\StandAloneApplications\WinFormComponets\CheckGroupBoxAndRadioGroupBox\RadioGroupBox\RadioGroupBox\RadioGroupBox2008.csproj">
+      <Project>{68111488-DD5C-4673-A3E3-17B6E48C5083}</Project>
+      <Name>RadioGroupBox2008</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\StandAloneApplications\WinFormComponets\IPAddressControlLib\IPAddressControlLib.csproj">
+      <Project>{259C297E-A054-4EB4-88A3-8BB1F37506C5}</Project>
+      <Name>IPAddressControlLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
