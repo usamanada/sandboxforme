@@ -177,12 +177,13 @@ namespace SandBox.Winform.SilentInstall
                 cbxEnvironments.ValueMember = "Key";
 
                 _cbxEnvironmentsSelectedIndexChangedExecute = true;
+
                 cbxEnvironments_SelectedIndexChanged(this, null);
 
                 txtUserName.Text = Environment.UserName;
                 txtDomain.Text = Environment.UserDomainName;
 
-                btnInstall.Enabled = false;
+                //btnInstall.Enabled = false;
                 SetLabelCredentials(ControlState.HideAll);
 
                 lbxInstall.DisplayMember = "Display";
@@ -266,9 +267,8 @@ namespace SandBox.Winform.SilentInstall
                 return;
             }
             ImpersonateUser iU = new ImpersonateUser();
-            //txtDomain.Text + @"\" +
-            string domainUser = txtUserName.Text;
-            if (iU.Impersonate("remoteMachine", domainUser, txtPassword.Text))
+
+            if (iU.Impersonate(txtDomain.Text, txtUserName.Text, txtPassword.Text))
             {
                 iU.Undo();
                 SetLabelCredentials(ControlState.ValidUser);
@@ -440,7 +440,7 @@ namespace SandBox.Winform.SilentInstall
             processWorker.ReportProgress(1, new ProgressObject { index = index, message = "" });
             processWorker.ReportProgress(0, DateTime.Now + " Complete: " + _iHelper.applications[index] + Environment.NewLine + Environment.NewLine);
 
-            if (_iHelper.applications[index] == "Reboot")
+            if (_iHelper.applications[index] == ConstReboot)
             {
                 rtbLog.BeginInvoke(new MethodInvoker(delegate { rtbLog.SaveFile(_iHelper.LogFilePath()); }));
                 return ProcessExit.Reboot;
