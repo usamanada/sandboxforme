@@ -56,16 +56,16 @@
             this.tbpProgress = new System.Windows.Forms.TabPage();
             this.rtbLog = new System.Windows.Forms.RichTextBox();
             this.dgvProgress = new System.Windows.Forms.DataGridView();
+            this.dgcProgImage = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dgcProgOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcProgApplication = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcProgMessage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbpAdmin = new System.Windows.Forms.TabPage();
             this.btnCreateWorkConfig = new System.Windows.Forms.Button();
             this.btnCopyBatchFiles = new System.Windows.Forms.Button();
             this.btnCleanAutoLogins = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.processWorker = new System.ComponentModel.BackgroundWorker();
-            this.dgcProgImage = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dgcProgOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcProgApplication = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcProgMessage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbcInstall.SuspendLayout();
             this.tbpInstall.SuspendLayout();
             this.gbxAutoLogin.SuspendLayout();
@@ -359,6 +359,33 @@
             this.dgvProgress.Size = new System.Drawing.Size(834, 176);
             this.dgvProgress.TabIndex = 0;
             // 
+            // dgcProgImage
+            // 
+            this.dgcProgImage.HeaderText = "";
+            this.dgcProgImage.Name = "dgcProgImage";
+            this.dgcProgImage.ReadOnly = true;
+            // 
+            // dgcProgOrder
+            // 
+            this.dgcProgOrder.HeaderText = "Order";
+            this.dgcProgOrder.Name = "dgcProgOrder";
+            this.dgcProgOrder.ReadOnly = true;
+            this.dgcProgOrder.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dgcProgApplication
+            // 
+            this.dgcProgApplication.HeaderText = "Application";
+            this.dgcProgApplication.Name = "dgcProgApplication";
+            this.dgcProgApplication.ReadOnly = true;
+            this.dgcProgApplication.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dgcProgMessage
+            // 
+            this.dgcProgMessage.HeaderText = "Message";
+            this.dgcProgMessage.Name = "dgcProgMessage";
+            this.dgcProgMessage.ReadOnly = true;
+            this.dgcProgMessage.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
             // tbpAdmin
             // 
             this.tbpAdmin.Controls.Add(this.btnCreateWorkConfig);
@@ -408,33 +435,6 @@
             this.processWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.processWorker_RunWorkerCompleted);
             this.processWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.processWorker_ProgressChanged);
             // 
-            // dgcProgImage
-            // 
-            this.dgcProgImage.HeaderText = "";
-            this.dgcProgImage.Name = "dgcProgImage";
-            this.dgcProgImage.ReadOnly = true;
-            // 
-            // dgcProgOrder
-            // 
-            this.dgcProgOrder.HeaderText = "Order";
-            this.dgcProgOrder.Name = "dgcProgOrder";
-            this.dgcProgOrder.ReadOnly = true;
-            this.dgcProgOrder.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // dgcProgApplication
-            // 
-            this.dgcProgApplication.HeaderText = "Application";
-            this.dgcProgApplication.Name = "dgcProgApplication";
-            this.dgcProgApplication.ReadOnly = true;
-            this.dgcProgApplication.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // dgcProgMessage
-            // 
-            this.dgcProgMessage.HeaderText = "Message";
-            this.dgcProgMessage.Name = "dgcProgMessage";
-            this.dgcProgMessage.ReadOnly = true;
-            this.dgcProgMessage.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -442,7 +442,7 @@
             this.ClientSize = new System.Drawing.Size(883, 631);
             this.Controls.Add(this.tbcInstall);
             this.Name = "Form1";
-            this.Text = "Silent Install v1.4.0.0";
+            this.Text = "Silent Install v1.6.0.0";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tbcInstall.ResumeLayout(false);
             this.tbpInstall.ResumeLayout(false);
