@@ -1,0 +1,1 @@
+[BASEINSTALLDIR]SharePointDesigner2007\setup.exe /adminfile [BASEINSTALLDIR]ConfigFiles\SharePointDesigner2007\SharePointDesigner2007SilentConfig.MSP

@@ -1,0 +1,1 @@
+C:\install\Biztalk2006R2\setup /CABPATH C:\install\Biztalk2006R2CAB\BtsRedistW2k3EN32.cab /PASSIVE /ADDLOCAL ALL

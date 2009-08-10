@@ -1,0 +1,1 @@
+[BASEINSTALLDIR]sql2005_sp3\SQLServer2005SP3-KB955706-x86-ENU.exe /quiet /allinstances
