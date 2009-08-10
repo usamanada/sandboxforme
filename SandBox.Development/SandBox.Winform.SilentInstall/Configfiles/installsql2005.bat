@@ -1,0 +1,1 @@
+"[BASEINSTALLDIR]sql2005\Servers\setup.exe" /settings [BASEINSTALLDIR]configfiles\sql2005\setup.ini /qb
