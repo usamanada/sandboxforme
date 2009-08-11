@@ -194,14 +194,11 @@ namespace SandBox.Winform.WMI.Explorer
                 {
                     // Adds the namespaces to the namespace lists.
                     string namespaceName = root + "\\" + ns["Name"].ToString();
-                    this.BrowseNamespaceList.Items.
-                        Add(namespaceName);
-                    this.NamespaceValue_m.Items.Add(
-                        namespaceName);
-                    this.NamespaceValue.Items.Add(
-                        namespaceName);
-                    this.NamespaceList_event.Items.Add(
-                        namespaceName);
+                    this.BrowseNamespaceList.Items.Add(namespaceName);
+                    this.NamespaceValue_m.Items.Add(namespaceName);
+                    this.NamespaceValue.Items.Add(namespaceName);
+                    this.NamespaceList_event.Items.Add(namespaceName);
+                    this.cbxQRNamespaceValue.Items.Add(namespaceName);
                     //SplashScreenForm.IncrementProgress();
                     NamespaceCount++;
                     AddNamespacesToListRecursive(namespaceName);
@@ -6598,50 +6595,58 @@ namespace SandBox.Winform.WMI.Explorer
 
         private void btnExecute_Click(object sender, EventArgs e)
         {
-            bool builtGrid = false;
-            ManagementObjectSearcher searcher =
-                   new ManagementObjectSearcher("root\\MicrosoftBizTalkServer", rtbQuery.Text);
-
-            dgvResult.DataSource = null;
-            dgvResult.Columns.Clear();
-
-            DataTable table = new DataTable("table1");
-
-            foreach (System.Management.ManagementObject mObj in searcher.Get())
+            try
             {
-                if (builtGrid == false)
+                bool builtGrid = false;
+                ManagementObjectSearcher searcher =
+                       new ManagementObjectSearcher(this.cbxQRNamespaceValue.Text, rtbQuery.Text);
+
+                dgvResult.DataSource = null;
+                dgvResult.Columns.Clear();
+
+                DataTable table = new DataTable("table1");
+
+                foreach (System.Management.ManagementObject mObj in searcher.Get())
                 {
+                    if (builtGrid == false)
+                    {
 
-                    
 
+
+                        foreach (System.Management.PropertyData property in mObj.Properties)
+                        {
+                            DataColumn column = new DataColumn(property.Name, typeof(string));
+                            table.Columns.Add(column);
+                            Console.WriteLine(property.Name);
+
+                        }
+                        builtGrid = true;
+                    }
+                    DataRow dr = table.NewRow();
                     foreach (System.Management.PropertyData property in mObj.Properties)
                     {
-                        DataColumn column = new DataColumn(property.Name, typeof(string));
-                        table.Columns.Add(column);
-                         Console.WriteLine(property.Name);
-                            
-                    }
-                    builtGrid = true;
-                }
-                DataRow dr = table.NewRow();
-                foreach (System.Management.PropertyData property in mObj.Properties)
-                {
-                    
 
-                    if (property.Value != null)
-                    {
-                        dr[property.Name] = property.Value.ToString();
-                    }
-                    else
-                    {
-                        dr[property.Name] = "null";
-                    }
-                }
-                table.Rows.Add(dr);
 
+                        if (property.Value != null)
+                        {
+                            dr[property.Name] = property.Value.ToString();
+                        }
+                        else
+                        {
+                            dr[property.Name] = "null";
+                        }
+                    }
+                    table.Rows.Add(dr);
+
+                }
+
+                dgvResult.DataSource = table;
             }
-
-            dgvResult.DataSource = table;
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
    
 
