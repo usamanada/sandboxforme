@@ -248,6 +248,8 @@ namespace SandBox.Winform.WMI.Explorer
             this.MethodHelpMenuItem = new System.Windows.Forms.MenuItem();
             this.EventHelpMenuItem = new System.Windows.Forms.MenuItem();
             this.BrowseHelpMenuItem = new System.Windows.Forms.MenuItem();
+            this.cbxQRNamespaceValue = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.MainTabControl.SuspendLayout();
             this.QueryTab.SuspendLayout();
             this.CodeGroupBox.SuspendLayout();
@@ -1246,10 +1248,10 @@ namespace SandBox.Winform.WMI.Explorer
             this.dgvResult.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.test});
             this.dgvResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvResult.Location = new System.Drawing.Point(0, 54);
+            this.dgvResult.Location = new System.Drawing.Point(0, 99);
             this.dgvResult.Name = "dgvResult";
             this.dgvResult.ReadOnly = true;
-            this.dgvResult.Size = new System.Drawing.Size(840, 417);
+            this.dgvResult.Size = new System.Drawing.Size(840, 372);
             this.dgvResult.TabIndex = 0;
             // 
             // test
@@ -1260,17 +1262,19 @@ namespace SandBox.Winform.WMI.Explorer
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.cbxQRNamespaceValue);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.rtbQuery);
             this.panel1.Controls.Add(this.btnExecute);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(840, 54);
+            this.panel1.Size = new System.Drawing.Size(840, 99);
             this.panel1.TabIndex = 1;
             // 
             // rtbQuery
             // 
-            this.rtbQuery.Location = new System.Drawing.Point(4, 4);
+            this.rtbQuery.Location = new System.Drawing.Point(8, 40);
             this.rtbQuery.Name = "rtbQuery";
             this.rtbQuery.Size = new System.Drawing.Size(711, 47);
             this.rtbQuery.TabIndex = 1;
@@ -1278,7 +1282,7 @@ namespace SandBox.Winform.WMI.Explorer
             // 
             // btnExecute
             // 
-            this.btnExecute.Location = new System.Drawing.Point(721, 28);
+            this.btnExecute.Location = new System.Drawing.Point(725, 64);
             this.btnExecute.Name = "btnExecute";
             this.btnExecute.Size = new System.Drawing.Size(75, 23);
             this.btnExecute.TabIndex = 0;
@@ -1397,6 +1401,25 @@ namespace SandBox.Winform.WMI.Explorer
             this.BrowseHelpMenuItem.Text = "Browsing WMI namespaces";
             this.BrowseHelpMenuItem.Click += new System.EventHandler(this.BrowseHelpMenuItem_Click);
             // 
+            // cbxQRNamespaceValue
+            // 
+            this.cbxQRNamespaceValue.Location = new System.Drawing.Point(103, 13);
+            this.cbxQRNamespaceValue.MaxDropDownItems = 25;
+            this.cbxQRNamespaceValue.Name = "cbxQRNamespaceValue";
+            this.cbxQRNamespaceValue.Size = new System.Drawing.Size(336, 21);
+            this.cbxQRNamespaceValue.Sorted = true;
+            this.cbxQRNamespaceValue.TabIndex = 3;
+            this.cbxQRNamespaceValue.Text = "root\\CIMV2";
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(8, 18);
+            this.label1.Name = "label1";
+            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label1.Size = new System.Drawing.Size(68, 16);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Namespace:";
+            // 
             // WMICodeCreator
             // 
             this.AllowDrop = true;
@@ -1439,6 +1462,8 @@ namespace SandBox.Winform.WMI.Explorer
         private System.Windows.Forms.DataGridView dgvResult;
         private System.Windows.Forms.RichTextBox rtbQuery;
         private System.Windows.Forms.DataGridViewTextBoxColumn test;
+        private System.Windows.Forms.ComboBox cbxQRNamespaceValue;
+        private System.Windows.Forms.Label label1;
     }
 }
 
