@@ -1,0 +1,252 @@
+﻿#if __DESIGNER_DATA
+#error Do not define __DESIGNER_DATA.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<om:MetaModel MajorVersion="1" MinorVersion="3" Core="2b131234-7959-458d-834f-2dc0769ce683" ScheduleModel="66366196-361d-448d-976f-cab5e87496d2" xmlns:om="http://schemas.microsoft.com/BizTalk/2003/DesignerData">
+    <om:Element Type="Module" OID="a8bbd872-2b0c-428a-b4e8-0792e5abe360" LowerBound="1.1" HigherBound="67.1">
+        <om:Property Name="ReportToAnalyst" Value="True" />
+        <om:Property Name="Name" Value="SendEmail" />
+        <om:Property Name="Signal" Value="False" />
+        <om:Element Type="PortType" OID="fc225897-7521-445f-8d39-138a3903d9d6" ParentLink="Module_PortType" LowerBound="9.1" HigherBound="16.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="PortType_1" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="409ef880-78f4-44bd-8004-d7e18397e899" ParentLink="PortType_OperationDeclaration" LowerBound="11.1" HigherBound="15.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="76c8961e-21af-4788-a932-98c0621ab12c" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="13.13" HigherBound="13.20">
+                    <om:Property Name="Ref" Value="SendEmail.Schema1" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="4ffce578-1dc5-4254-862e-75db23b155c8" ParentLink="Module_PortType" LowerBound="16.1" HigherBound="23.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="PortType_2" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="24ccb358-b20e-4aa4-937d-2097477e7e65" ParentLink="PortType_OperationDeclaration" LowerBound="18.1" HigherBound="22.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="63f7f2b8-91e2-4c54-a2df-0101ff38a34c" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="20.13" HigherBound="20.22">
+                    <om:Property Name="Ref" Value="SendEmail.EMailType" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="MultipartMessageType" OID="4f36159b-923d-4c71-beef-e8f673b2158a" ParentLink="Module_MessageType" LowerBound="4.1" HigherBound="9.1">
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="EMailType" />
+            <om:Property Name="Signal" Value="True" />
+            <om:Element Type="PartDeclaration" OID="6d94660b-53c6-4e87-ae51-06ecc652946a" ParentLink="MultipartMessageType_PartDeclaration" LowerBound="6.1" HigherBound="7.1">
+                <om:Property Name="ClassName" Value="Microsoft.Samples.BizTalk.XlangCustomFormatters.RawString" />
+                <om:Property Name="IsBodyPart" Value="True" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="EmailBody" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="PartDeclaration" OID="e2cd43f7-1e07-455a-babc-a6311562fdc6" ParentLink="MultipartMessageType_PartDeclaration" LowerBound="7.1" HigherBound="8.1">
+                <om:Property Name="ClassName" Value="System.Xml.XmlDocument" />
+                <om:Property Name="IsBodyPart" Value="False" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Attachment" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+        </om:Element>
+        <om:Element Type="ServiceDeclaration" OID="9712251a-45e7-42af-af66-fa33b0ccffb6" ParentLink="Module_ServiceDeclaration" LowerBound="23.1" HigherBound="66.1">
+            <om:Property Name="InitializedTransactionType" Value="False" />
+            <om:Property Name="IsInvokable" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="BizTalk_Orchestration1" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="VariableDeclaration" OID="036277fd-561c-498d-a5e3-c12ef02f5398" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="32.1" HigherBound="33.1">
+                <om:Property Name="UseDefaultConstructor" Value="True" />
+                <om:Property Name="Type" Value="System.Text.StringBuilder" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="msgbody" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="bcef23e9-2203-4f3f-ad40-621888780a97" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="30.1" HigherBound="31.1">
+                <om:Property Name="Type" Value="SendEmail.Schema1" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Message_1" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="30a9ec67-4f81-469b-a4b4-609717e77a09" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="31.1" HigherBound="32.1">
+                <om:Property Name="Type" Value="SendEmail.EMailType" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="EMail" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="ServiceBody" OID="54e49a04-94bc-4810-a427-9f5750f3e6cb" ParentLink="ServiceDeclaration_ServiceBody">
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="Receive" OID="482602f8-7605-4a7f-805d-1b283ac4829b" ParentLink="ServiceBody_Statement" LowerBound="35.1" HigherBound="38.1">
+                    <om:Property Name="Activate" Value="True" />
+                    <om:Property Name="PortName" Value="Port_1" />
+                    <om:Property Name="MessageName" Value="Message_1" />
+                    <om:Property Name="OperationName" Value="Operation_1" />
+                    <om:Property Name="OperationMessageName" Value="Request" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Receive File" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="Construct" OID="07ff74d4-7170-4325-914e-d4672804a36b" ParentLink="ServiceBody_Statement" LowerBound="38.1" HigherBound="58.1">
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Create Email" />
+                    <om:Property Name="Signal" Value="True" />
+                    <om:Element Type="MessageRef" OID="2208e962-b206-417e-b009-35a1c0684391" ParentLink="Construct_MessageRef" LowerBound="39.23" HigherBound="39.28">
+                        <om:Property Name="Ref" Value="EMail" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Signal" Value="False" />
+                    </om:Element>
+                    <om:Element Type="MessageAssignment" OID="b56bb60f-ee13-4161-bee9-8aad2358dfea" ParentLink="ComplexStatement_Statement" LowerBound="41.1" HigherBound="57.1">
+                        <om:Property Name="Expression" Value="msgbody = new System.Text.StringBuilder();&#xD;&#xA;msgbody.AppendLine(&quot;&lt;html&gt;&lt;body&gt;&quot;);&#xD;&#xA;msgbody.AppendLine(&quot;&lt;p&gt;The attached document failed on processing in BizTalk Server.&lt;/p&gt;&quot;);&#xD;&#xA;msgbody.AppendLine(&quot;&lt;p&gt;&lt;b&gt;Error details:&lt;/b&gt;&lt;/p&gt;&quot;);&#xD;&#xA;msgbody.AppendLine(&quot;&lt;/body&gt;&lt;/html&gt;&quot;);&#xD;&#xA;&#xD;&#xA;EMail.EmailBody = new Microsoft.Samples.BizTalk.XlangCustomFormatters.RawString(msgbody.ToString());&#xD;&#xA;EMail.EmailBody(Microsoft.XLANGs.BaseTypes.ContentType) = &quot;text/html&quot;;&#xD;&#xA;&#xD;&#xA;EMail.Attachment = Message_1;&#xD;&#xA;EMail(SMTP.Subject) = &quot;Failed error message notification&quot;;&#xD;&#xA;EMail(SMTP.From) = &quot;test@test.com&quot;;&#xD;&#xA;EMail(SMTP.EmailBodyFileCharset) = &quot;UTF-8&quot;;&#xD;&#xA;EMail(SMTP.MessagePartsAttachments) = 2;&#xD;&#xA;&#xD;&#xA;" />
+                        <om:Property Name="ReportToAnalyst" Value="False" />
+                        <om:Property Name="Name" Value="MessageAssignment_1" />
+                        <om:Property Name="Signal" Value="False" />
+                    </om:Element>
+                </om:Element>
+                <om:Element Type="VariableAssignment" OID="25da9935-4f5f-47d6-92a9-ddd8717e52ce" ParentLink="ServiceBody_Statement" LowerBound="58.1" HigherBound="62.1">
+                    <om:Property Name="Expression" Value="//get email from BR??&#xD;&#xA;&#xD;&#xA;Port_2(Microsoft.XLANGs.BaseTypes.Address) = &quot;mailto:john.devers@stargategroup.com.au&quot;;" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Set Send Port" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="Send" OID="e9f03da5-5628-4387-8bc5-e2af5fbe454b" ParentLink="ServiceBody_Statement" LowerBound="62.1" HigherBound="64.1">
+                    <om:Property Name="PortName" Value="Port_2" />
+                    <om:Property Name="MessageName" Value="EMail" />
+                    <om:Property Name="OperationName" Value="Operation_1" />
+                    <om:Property Name="OperationMessageName" Value="Request" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Send Email" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="826ccc70-3176-4eb6-a834-fb0e959aa574" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="26.1" HigherBound="28.1">
+                <om:Property Name="PortModifier" Value="Implements" />
+                <om:Property Name="Orientation" Value="Left" />
+                <om:Property Name="PortIndex" Value="-1" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="SendEmail.PortType_1" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Port_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="PhysicalBindingAttribute" OID="6fbe4eec-615b-4ec0-a9f2-257ff4dce68c" ParentLink="PortDeclaration_CLRAttribute" LowerBound="26.1" HigherBound="27.1">
+                    <om:Property Name="InPipeline" Value="Microsoft.BizTalk.DefaultPipelines.XMLReceive" />
+                    <om:Property Name="OutPipeline" Value="Microsoft.BizTalk.DefaultPipelines.XMLTransmit" />
+                    <om:Property Name="TransportType" Value="FILE" />
+                    <om:Property Name="URI" Value="C:\Work\Data\Email\IN\*" />
+                    <om:Property Name="IsDynamic" Value="False" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="cad03ebc-a544-458a-81d2-cf83ab22d723" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="28.1" HigherBound="30.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Right" />
+                <om:Property Name="PortIndex" Value="19" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="SendEmail.PortType_2" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Port_2" />
+                <om:Property Name="Signal" Value="True" />
+                <om:Element Type="PhysicalBindingAttribute" OID="8ddecd1f-bef6-4ba7-856b-8802f8e37f09" ParentLink="PortDeclaration_CLRAttribute" LowerBound="28.1" HigherBound="29.1">
+                    <om:Property Name="InPipeline" Value="Microsoft.BizTalk.DefaultPipelines.XMLReceive" />
+                    <om:Property Name="OutPipeline" Value="Microsoft.BizTalk.DefaultPipelines.PassThruTransmit" />
+                    <om:Property Name="TransportType" Value="HTTP" />
+                    <om:Property Name="URI" Value="http://tempURI" />
+                    <om:Property Name="IsDynamic" Value="True" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+    </om:Element>
+</om:MetaModel>
+#endif // __DESIGNER_DATA
+[Microsoft.XLANGs.BaseTypes.BPELExportable(false)]
+module SendEmail
+{
+    internal messagetype EMailType
+    {
+        body Microsoft.Samples.BizTalk.XlangCustomFormatters.RawString EmailBody;
+        System.Xml.XmlDocument Attachment;
+    };
+    internal porttype PortType_1
+    {
+        oneway Operation_1
+        {
+            Schema1
+        };
+    };
+    internal porttype PortType_2
+    {
+        oneway Operation_1
+        {
+            EMailType
+        };
+    };
+    [Microsoft.XLANGs.BaseTypes.BPELExportable(false)]
+    internal service BizTalk_Orchestration1
+    {
+        [Microsoft.XLANGs.BaseTypes.PhysicalBinding("FILE", "C:\\Work\\Data\\Email\\IN\\*", typeof(Microsoft.BizTalk.DefaultPipelines.XMLReceive))]
+        port implements PortType_1 Port_1;
+        [Microsoft.XLANGs.BaseTypes.PhysicalBinding(typeof(Microsoft.BizTalk.DefaultPipelines.PassThruTransmit))]
+        port uses dynamic PortType_2 Port_2;
+        message Schema1 Message_1;
+        message EMailType EMail;
+        System.Text.StringBuilder msgbody;
+        body ()
+        {
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("482602f8-7605-4a7f-805d-1b283ac4829b")]
+            activate receive (Port_1.Operation_1, Message_1);
+            msgbody = new System.Text.StringBuilder();
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("07ff74d4-7170-4325-914e-d4672804a36b")]
+            construct EMail
+            {
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("b56bb60f-ee13-4161-bee9-8aad2358dfea")]
+                msgbody = new System.Text.StringBuilder();
+                msgbody.AppendLine("<html><body>");
+                msgbody.AppendLine("<p>The attached document failed on processing in BizTalk Server.</p>");
+                msgbody.AppendLine("<p><b>Error details:</b></p>");
+                msgbody.AppendLine("</body></html>");
+                
+                EMail.EmailBody = new Microsoft.Samples.BizTalk.XlangCustomFormatters.RawString(msgbody.ToString());
+                EMail.EmailBody(Microsoft.XLANGs.BaseTypes.ContentType) = "text/html";
+                
+                EMail.Attachment = Message_1;
+                EMail(SMTP.Subject) = "Failed error message notification";
+                EMail(SMTP.From) = "test@test.com";
+                EMail(SMTP.EmailBodyFileCharset) = "UTF-8";
+                EMail(SMTP.MessagePartsAttachments) = 2;
+                
+            }
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("25da9935-4f5f-47d6-92a9-ddd8717e52ce")]
+            //get email from BR??
+            
+            Port_2(Microsoft.XLANGs.BaseTypes.Address) = "mailto:john.devers@stargategroup.com.au";
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("e9f03da5-5628-4387-8bc5-e2af5fbe454b")]
+            send (Port_2.Operation_1, EMail);
+        }
+    }
+}
+
