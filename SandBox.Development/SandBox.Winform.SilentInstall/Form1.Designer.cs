@@ -442,7 +442,7 @@
             this.ClientSize = new System.Drawing.Size(883, 631);
             this.Controls.Add(this.tbcInstall);
             this.Name = "Form1";
-            this.Text = "Silent Install v1.6.0.0";
+            this.Text = "Silent Install v1.7.0.0";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tbcInstall.ResumeLayout(false);
             this.tbpInstall.ResumeLayout(false);

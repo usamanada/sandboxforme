@@ -55,6 +55,18 @@ namespace SandBox.Winform.SilentInstall
                 return (InstallApplicationsElement)BaseGet(key);
             }
         }
+        public bool HasKey(string key)
+        {
+            ConfigurationElement ce = this.BaseGet(key);
+            if (ce != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         protected override string ElementName
         {
             get
@@ -127,5 +139,20 @@ namespace SandBox.Winform.SilentInstall
                 base["ExitCode"] = value;
             }
         }
+
+        [ConfigurationProperty("UserPassRequired", IsKey = false, IsRequired = false)]
+        public string UserPassRequired
+        {
+            get
+            {
+                return (string)base["UserPassRequired"];
+            }
+            set
+            {
+                base["UserPassRequired"] = value;
+            }
+        }
+
+        
     }
 }

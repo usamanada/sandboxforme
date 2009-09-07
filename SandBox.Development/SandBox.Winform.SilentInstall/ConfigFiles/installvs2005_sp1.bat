@@ -1,0 +1,2 @@
+start /wait [BASEINSTALLDIR]vs2005_sp1\VS80sp1-KB926601-X86-ENU.exe /q
+

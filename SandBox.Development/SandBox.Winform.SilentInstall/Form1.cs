@@ -32,8 +32,8 @@ namespace SandBox.Winform.SilentInstall
             ValidUser,
             InValidUser,
             HideAll,
-            NoReboot,
-            Reboot,
+            NoUserDetailsRequired,
+            UserDetailsRequired,
             Disable,
             Enable
         }
@@ -71,12 +71,12 @@ namespace SandBox.Winform.SilentInstall
         {
             switch (cs)
             {
-                case ControlState.Reboot:
+                case ControlState.UserDetailsRequired:
                     gbxAutoLogin.Enabled = true;
                     btnInstall.Enabled = false;
                     SetLabelCredentials(ControlState.HideAll);
                     break;
-                case ControlState.NoReboot:
+                case ControlState.NoUserDetailsRequired:
                     gbxAutoLogin.Enabled = false;
                     btnInstall.Enabled = true;
                     SetLabelCredentials(ControlState.HideAll);
@@ -84,7 +84,6 @@ namespace SandBox.Winform.SilentInstall
                 default:
                     break;
             }
-
         }
         private void SetProcesingControl(ControlState cs)
         {
@@ -109,7 +108,7 @@ namespace SandBox.Winform.SilentInstall
                 lbxInstall.Items.Clear();
                 lbxAvailable.Items.Clear();
                 lstInstalling.Clear();
-                SetRebootRequired(ControlState.NoReboot);
+                SetRebootRequired(ControlState.NoUserDetailsRequired);
 
                 EnvironmentElement en = _es.EnvironmentItems[kp.Key];
 
@@ -152,6 +151,11 @@ namespace SandBox.Winform.SilentInstall
         {
             try
             {
+                if (!_iHelper.ValidateConfigFile())
+                {
+                    MessageBox.Show(_iHelper.Error, "Error in the App Configuration File");
+                    return;
+                }
                 _es = ConfigurationManager.GetSection("InstallChoice") as EnvironmentsSection;
 
                 _ia = ConfigurationManager.GetSection("InstallApplications") as InstallApplicationsSection;
@@ -196,7 +200,7 @@ namespace SandBox.Winform.SilentInstall
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message + Environment.NewLine + ex.StackTrace);
+                MessageBox.Show(ex.Message + Environment.NewLine + ex.StackTrace);
             }
         }
         private void SetDataGridViewSelectRow(int rowIndex)
@@ -255,7 +259,7 @@ namespace SandBox.Winform.SilentInstall
                 _iHelper.SetAutoLoginRegDetails(txtUserName.Text, txtDomain.Text, txtPassword.Text);
             }
             _iHelper.WorkConfigCreate((from ListBoxDisplay item in lbxInstall.Items select item).ToList());
-            _iHelper.CopyBatchFiles();
+            _iHelper.CopyBatchFiles(txtDomain.Text, txtUserName.Text, txtPassword.Text, Environment.MachineName);
             DoWork();
         }
         private void btnCheck_Click(object sender, EventArgs e)
@@ -280,7 +284,7 @@ namespace SandBox.Winform.SilentInstall
                 SetLabelCredentials(ControlState.InValidUser);
             }
         }
-        
+
         #region Run Processes
         private void DoWork()
         {
@@ -300,7 +304,7 @@ namespace SandBox.Winform.SilentInstall
                         rtbLog.LoadFile(_iHelper.LogFilePath());
                         rtbLog.Refresh();
                     }
-                    
+
                     for (int index = 0; index < _iHelper.applications.Count; index++)
                     {
                         int rowId = dgvProgress.Rows.Add();
@@ -371,13 +375,13 @@ namespace SandBox.Winform.SilentInstall
             SetProcesingControl(ControlState.Enable);
         }
         #region Background Thread
-        
+
         private ProcessExit StartProcessInstallation()
         {
             ProcessExit pe = ProcessExit.Complete;
             try
             {
-                
+
                 while (_iHelper.CurrentOrder < _iHelper.applications.Count)
                 {
                     _iHelper.SetOrder(++_iHelper.CurrentOrder);
@@ -463,7 +467,7 @@ namespace SandBox.Winform.SilentInstall
                     MessageBox.Show("An error has been detected during the installation process.", "Error",
                                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                
+
                 _iHelper.CleanAll();
             }
             catch (Exception ex)
@@ -498,20 +502,32 @@ namespace SandBox.Winform.SilentInstall
         private void LbxInstallAdd(ListBoxDisplay application)
         {
             lbxInstall.Items.Add(application);
-            if (application.Display == ConstReboot)
+
+            if (checkUserDetailsRequired())
             {
-                SetRebootRequired(ControlState.Reboot);
+                SetRebootRequired(ControlState.UserDetailsRequired);
             }
+
         }
         private void LbxInstallRemove(ListBoxDisplay application)
         {
             lbxInstall.Items.Remove(application);
-            if (application.Display == ConstReboot)
+            if (!checkUserDetailsRequired())
             {
-                SetRebootRequired(ControlState.NoReboot);
+                SetRebootRequired(ControlState.NoUserDetailsRequired);
             }
         }
-
+        private bool checkUserDetailsRequired()
+        {
+            foreach (ListBoxDisplay item in lbxInstall.Items)
+            {
+                if (_ia.InstallApplicationsItems[item.Value.ToString()].UserPassRequired == "1" || item.Value.ToString() == "Reboot")
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         private void btnUp_Click(object sender, EventArgs e)
         {
             if (lbxInstall.SelectedItem != null)
@@ -527,7 +543,6 @@ namespace SandBox.Winform.SilentInstall
                 }
             }
         }
-
         private void btnDown_Click(object sender, EventArgs e)
         {
             if (lbxInstall.SelectedItem != null)
@@ -551,15 +566,13 @@ namespace SandBox.Winform.SilentInstall
         }
         private void btnCopyBatchFiles_Click(object sender, EventArgs e)
         {
-            _iHelper.CopyBatchFiles();
+            _iHelper.CopyBatchFiles(txtDomain.Text, txtUserName.Text, txtPassword.Text, Environment.MachineName);
         }
         private void btnCleanAutoLogins_Click(object sender, EventArgs e)
         {
             _iHelper.CleanAutoStart();
         }
         #endregion
-
-        
 
     }
 }
