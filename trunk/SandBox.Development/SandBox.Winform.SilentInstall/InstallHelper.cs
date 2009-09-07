@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
+using System.Threading;
 using System.Xml;
 
 using System.Xml.XPath;
@@ -276,7 +277,7 @@ namespace SandBox.Winform.SilentInstall
             }
         }
 
-        public void CopyBatchFiles()
+        public void CopyBatchFiles(string domain, string username, string password, string servername)
         {
             string[] files = Directory.GetFiles(ConfigurationManager.AppSettings["ConfigDir"]);
 
@@ -290,7 +291,12 @@ namespace SandBox.Winform.SilentInstall
                 FileHelper.ReplaceInFile(tempFile, @"\[WORKINGDRIVE\]",
                                          diCurrent.Root.ToString().Substring(0,diCurrent.Root.ToString().Length - 1));
                 FileHelper.ReplaceInFile(tempFile, @"\[BASEINSTALLDIR\]", diCurrent.FullName + "\\");
-
+                FileHelper.ReplaceInFile(tempFile, @"\[DOMAIN\]", domain);
+                FileHelper.ReplaceInFile(tempFile, @"\[USERNAME\]", username);
+                FileHelper.ReplaceInFile(tempFile, @"\[PASSWORD\]", password);
+                FileHelper.ReplaceInFile(tempFile, @"\[SERVERNAME\]", servername);
+                
+                
                 FileInfo fi = new FileInfo(file);
                 File.Copy(tempFile, Path.Combine(CreateWorkDir(), fi.Name), true);
             }
@@ -349,5 +355,27 @@ namespace SandBox.Winform.SilentInstall
             CleanAutoLoginRegDetails();
         }
         #endregion
+
+        public bool ValidateConfigFile()
+        {
+            EnvironmentsSection es;
+            InstallApplicationsSection ia;
+            es = ConfigurationManager.GetSection("InstallChoice") as EnvironmentsSection;
+            ia = ConfigurationManager.GetSection("InstallApplications") as InstallApplicationsSection;
+
+            foreach (EnvironmentElement ee in es.EnvironmentItems)
+            {
+                foreach (ApplicationElement ae in ee.ApplicationItems)
+                {
+                    if (!ia.InstallApplicationsItems.HasKey(ae.Value))
+                    {
+                        Error = string.Format("Invalid value of {0} in Environment name {1}, application order {2} can not be found in InstallApplications section of the config file", ae.Value, ee.Name, ae.Order);
+                        return false;
+                    }    
+                }
+            }
+            return true;
+        }
+        public string Error { set; get; }
     }
 }
