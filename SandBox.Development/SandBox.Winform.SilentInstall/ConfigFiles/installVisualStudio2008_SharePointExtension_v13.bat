@@ -1,1 +1,0 @@
-[BASEINSTALLDIR]vs2008_SharePointExtension_v13\VSeWSSv13_x86_Build-433.exe /passive
