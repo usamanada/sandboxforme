@@ -1,3 +1,0 @@
-[WORKINGDRIVE]
-cd [BASEINSTALLDIR]
-SilentInstall.exe
