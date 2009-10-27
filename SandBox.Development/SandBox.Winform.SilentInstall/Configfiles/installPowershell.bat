@@ -1,1 +1,0 @@
-servermanagercmd -i powershell
