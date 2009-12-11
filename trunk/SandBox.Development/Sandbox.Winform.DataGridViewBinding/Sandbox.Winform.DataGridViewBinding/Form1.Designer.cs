@@ -38,15 +38,23 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.button4 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.tbpLINQ = new System.Windows.Forms.TabPage();
+            this.btnLinqReadOnly = new System.Windows.Forms.Button();
+            this.btnLinqEdit = new System.Windows.Forms.Button();
+            this.dgvLinqEdit = new System.Windows.Forms.DataGridView();
+            this.dgvLinqReadOnly = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.tbpLINQ.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLinqEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLinqReadOnly)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -121,6 +129,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tbpLINQ);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -159,14 +168,6 @@
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(23, 23);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(596, 150);
-            this.dataGridView2.TabIndex = 1;
-            // 
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(209, 188);
@@ -197,6 +198,63 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(23, 23);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(596, 150);
+            this.dataGridView2.TabIndex = 1;
+            // 
+            // tbpLINQ
+            // 
+            this.tbpLINQ.Controls.Add(this.btnLinqReadOnly);
+            this.tbpLINQ.Controls.Add(this.btnLinqEdit);
+            this.tbpLINQ.Controls.Add(this.dgvLinqEdit);
+            this.tbpLINQ.Controls.Add(this.dgvLinqReadOnly);
+            this.tbpLINQ.Location = new System.Drawing.Point(4, 22);
+            this.tbpLINQ.Name = "tbpLINQ";
+            this.tbpLINQ.Size = new System.Drawing.Size(698, 465);
+            this.tbpLINQ.TabIndex = 2;
+            this.tbpLINQ.Text = "LINQ";
+            this.tbpLINQ.UseVisualStyleBackColor = true;
+            // 
+            // btnLinqReadOnly
+            // 
+            this.btnLinqReadOnly.Location = new System.Drawing.Point(307, 104);
+            this.btnLinqReadOnly.Name = "btnLinqReadOnly";
+            this.btnLinqReadOnly.Size = new System.Drawing.Size(75, 23);
+            this.btnLinqReadOnly.TabIndex = 3;
+            this.btnLinqReadOnly.Text = "Read Only";
+            this.btnLinqReadOnly.UseVisualStyleBackColor = true;
+            this.btnLinqReadOnly.Click += new System.EventHandler(this.btnLinqReadOnly_Click);
+            // 
+            // btnLinqEdit
+            // 
+            this.btnLinqEdit.Location = new System.Drawing.Point(307, 240);
+            this.btnLinqEdit.Name = "btnLinqEdit";
+            this.btnLinqEdit.Size = new System.Drawing.Size(75, 23);
+            this.btnLinqEdit.TabIndex = 2;
+            this.btnLinqEdit.Text = "Edit";
+            this.btnLinqEdit.UseVisualStyleBackColor = true;
+            this.btnLinqEdit.Click += new System.EventHandler(this.btnLinqEdit_Click);
+            // 
+            // dgvLinqEdit
+            // 
+            this.dgvLinqEdit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLinqEdit.Location = new System.Drawing.Point(8, 157);
+            this.dgvLinqEdit.Name = "dgvLinqEdit";
+            this.dgvLinqEdit.Size = new System.Drawing.Size(281, 107);
+            this.dgvLinqEdit.TabIndex = 1;
+            // 
+            // dgvLinqReadOnly
+            // 
+            this.dgvLinqReadOnly.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLinqReadOnly.Location = new System.Drawing.Point(8, 23);
+            this.dgvLinqReadOnly.Name = "dgvLinqReadOnly";
+            this.dgvLinqReadOnly.Size = new System.Drawing.Size(281, 105);
+            this.dgvLinqReadOnly.TabIndex = 0;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -210,6 +268,9 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.tbpLINQ.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLinqEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLinqReadOnly)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -230,6 +291,11 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.TabPage tbpLINQ;
+        private System.Windows.Forms.DataGridView dgvLinqEdit;
+        private System.Windows.Forms.DataGridView dgvLinqReadOnly;
+        private System.Windows.Forms.Button btnLinqReadOnly;
+        private System.Windows.Forms.Button btnLinqEdit;
 
     }
 }
