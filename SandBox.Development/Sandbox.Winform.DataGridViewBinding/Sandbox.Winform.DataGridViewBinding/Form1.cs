@@ -195,19 +195,55 @@ namespace Sandbox.Winform.DataGridViewBinding
 
             dataGridView2.Columns.Add(col);
 
+            dataGridView2.DataSource = createCarList();
+        }
+        private BindingList<Car> createCarList()
+        {
             BindingList<Car> blCar = new BindingList<Car>();
 
             Car c = new Car();
             c.Name = "Mazda";
-            c.Color = colors[0];
+            c.Color = new ColorName(1, "Red");
             blCar.Add(c);
 
-            dataGridView2.DataSource = blCar;
+            c = new Car();
+            c.Name = "Toyota";
+            c.Color = new ColorName(1, "Red");
+            blCar.Add(c);
+
+            c = new Car();
+            c.Name = "Honda";
+            c.Color = new ColorName(1, "Red");
+            blCar.Add(c);
+
+            return blCar; 
         }
         private void clearGrid()
         {
             dataGridView2.DataSource = null;
             dataGridView2.Columns.Clear();
         }
+
+        private void btnLinqReadOnly_Click(object sender, EventArgs e)
+        {
+            BindingList<Car> bCar = createCarList();
+            var result = from c in bCar
+                         select new { c.Name, ColorName = c.Color.Name };
+            dgvLinqReadOnly.DataSource = result.ToList();
+
+        }
+
+        private void btnLinqEdit_Click(object sender, EventArgs e)
+        {
+            BindingList<Car> bCar = createCarList();
+            var result = from c in bCar
+                         select new CarDetails(){ Name = c.Name, ColorName = c.Color.Name };
+            dgvLinqEdit.DataSource = result.ToList();
+        }
+    }
+    public class CarDetails
+    {
+        public string Name { get; set; }
+        public string ColorName { get; set; }
     }
 }
