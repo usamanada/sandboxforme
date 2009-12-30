@@ -101,6 +101,7 @@ namespace RenameFile
 
         private void btnFRPreview_Click(object sender, EventArgs e)
         {
+            dgvFRDetails.Rows.Clear();
             string[] Files = getFiles(txtDir.Text, txtFRFileFilter.Text);
             
             string filename;
