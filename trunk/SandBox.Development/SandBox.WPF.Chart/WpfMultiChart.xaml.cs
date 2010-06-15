@@ -787,27 +787,8 @@ namespace WpfChart2
                 maxYLabelHeight = Math.Max(maxYLabelHeight, text.DesiredSize.Width);
             }
             yGridLineLabels.Height = maxYLabelHeight + 2;
-            //Test
-            SolidColorBrush blueBrush = new SolidColorBrush(Colors.Blue);
-            blueBrush.Opacity = 0.5;
-            SolidColorBrush blackBrush = new SolidColorBrush(Colors.Black);
-            
-            Path bluePath = new Path();
-            bluePath.Fill = blueBrush;
 
-            RectangleGeometry blackRectGeometry = new RectangleGeometry();
-            Rect rct = new Rect();
-            rct.X = 0;
-            rct.Y = 0;
-            rct.Width = 150;
-            rct.Height = 100;
-            blackRectGeometry.Rect = rct;
 
-            GeometryGroup blueGeometryGroup = new GeometryGroup();
-            blueGeometryGroup.Children.Add(blackRectGeometry);
-            bluePath.Data = blueGeometryGroup;
-            textCanvas.Children.Add(bluePath);
-            //Test End
 
             Path path = new Path();
             path.Stroke = axisBrush;
@@ -838,6 +819,7 @@ namespace WpfChart2
             TimeRangeText.Text = sb.ToString();
         }
 
+        
         #region Time Range Change Event Handlers
         private void HourNavigateRequest(object sender, EventArgs e)
         {

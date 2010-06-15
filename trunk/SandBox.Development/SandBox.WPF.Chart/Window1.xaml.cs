@@ -62,7 +62,7 @@ namespace WpfChart2
 
             RandomDataSeries ranData1 = new RandomDataSeries(DateTime.Now.Millisecond, data1.CustomStartTime, 100, 4);
 
-            ranData1.ValueScale = 200;
+            ranData1.ValueScale = 190;
             //ranData2.ValueScale = 400;
             //ranData2.SampleFrequencyPerMin = 0.8;
             //ranData3.ValueScale = 200;
@@ -78,6 +78,11 @@ namespace WpfChart2
             mChart.AddSeries(data1);
 
             data1.AddPointsRange(points1.ToArray());
+        }
+
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            WindowSize.Text = String.Format("Height: {0} Width:{1}", e.NewSize.Height, e.NewSize.Width);
         }
     }
 }
