@@ -283,14 +283,21 @@ namespace SandBox.Winform.SilentInstall
 
             string tempFile = Guid.NewGuid() + ".tmp";
             DirectoryInfo diCurrent = new DirectoryInfo(Environment.CurrentDirectory);
-
+            
+            string baseDir = diCurrent.FullName;
+            
+            if (!baseDir.EndsWith("\\"))
+            {
+                baseDir = baseDir + "\\";
+            }
+            
             foreach (string file in files)
             {
                 File.Copy(file, tempFile, true);
 
                 FileHelper.ReplaceInFile(tempFile, @"\[WORKINGDRIVE\]",
                                          diCurrent.Root.ToString().Substring(0,diCurrent.Root.ToString().Length - 1));
-                FileHelper.ReplaceInFile(tempFile, @"\[BASEINSTALLDIR\]", diCurrent.FullName + "\\");
+                FileHelper.ReplaceInFile(tempFile, @"\[BASEINSTALLDIR\]", baseDir);
                 FileHelper.ReplaceInFile(tempFile, @"\[DOMAIN\]", domain);
                 FileHelper.ReplaceInFile(tempFile, @"\[USERNAME\]", username);
                 FileHelper.ReplaceInFile(tempFile, @"\[PASSWORD\]", password);
@@ -304,6 +311,10 @@ namespace SandBox.Winform.SilentInstall
             File.Delete(tempFile);
 
             CopyContineBatch();
+        }
+        string wrapStringInDoubleQuotes(string value)
+        {
+            return String.Format("\"{0}\"", value);
         }
         #endregion
 
