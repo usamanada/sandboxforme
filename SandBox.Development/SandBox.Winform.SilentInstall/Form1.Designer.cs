@@ -94,7 +94,7 @@
             // 
             // btnInstall
             // 
-            this.btnInstall.Location = new System.Drawing.Point(342, 541);
+            this.btnInstall.Location = new System.Drawing.Point(423, 489);
             this.btnInstall.Name = "btnInstall";
             this.btnInstall.Size = new System.Drawing.Size(75, 23);
             this.btnInstall.TabIndex = 3;
@@ -432,8 +432,8 @@
             // 
             this.processWorker.WorkerReportsProgress = true;
             this.processWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.processWorker_DoWork);
-            this.processWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.processWorker_RunWorkerCompleted);
             this.processWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.processWorker_ProgressChanged);
+            this.processWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.processWorker_RunWorkerCompleted);
             // 
             // Form1
             // 
