@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SandBox.Winform.SilentInstall", "..\SandBox.Winform.SilentInstall\SandBox.Winform.SilentInstall.csproj", "{E8761BDF-C8EC-40CB-BD3D-DFD715AFD4CE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SandBox.dll.Common", "..\SandBox.dll.Common\SandBox.dll.Common.csproj", "{AAEDD5D7-B4DE-4450-BE5B-568A5B18B018}"
