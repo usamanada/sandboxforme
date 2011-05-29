@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<images>
+    <pic>
+        <image>gallery/1.jpg</image>
+        <thumbnail>gallery/s1.jpg</thumbnail>
+        <caption>Some lamp on the ground</caption>
+    </pic>
+    <pic>
+        <image>gallery/2.jpg</image>
+        <thumbnail>gallery/s2.jpg</thumbnail>
+        <caption>Old communist buildings</caption>
+    </pic>    
+    <pic>
+        <image>gallery/3.jpg</image>
+        <thumbnail>gallery/s3.jpg</thumbnail>
+        <caption>Voodoo doll part one</caption>
+    </pic>   
+    <pic>
+        <image>gallery/4.jpg</image>
+        <thumbnail>gallery/s4.jpg</thumbnail>
+        <caption>Voodoo doll part two</caption>
+    </pic>     
+    <pic>
+        <image>gallery/5.jpg</image>
+        <thumbnail>gallery/s5.jpg</thumbnail>
+        <caption>Red Devil</caption>
+    </pic>     
+    <pic>
+        <image>gallery/6.jpg</image>
+        <thumbnail>gallery/s6.jpg</thumbnail>
+        <caption>Russian Church</caption>
+    </pic>     
+    <pic>
+        <image>gallery/7.jpg</image>
+        <thumbnail>gallery/s7.jpg</thumbnail>
+        <caption>Russian Church (another view)</caption>
+    </pic>   
+    <pic>
+        <image>gallery/8.jpg</image>
+        <thumbnail>gallery/s8.jpg</thumbnail>
+        <caption>Spring</caption>
+    </pic>   
+    <pic>
+        <image>gallery/9.jpg</image>
+        <thumbnail>gallery/s9.jpg</thumbnail>
+        <caption>Flames</caption>
+    </pic>   
+    <pic>
+        <image>gallery/10.jpg</image>
+        <thumbnail>gallery/s10.jpg</thumbnail>
+        <caption>Street Light</caption>
+    </pic>       
+    <pic>
+        <image>gallery/11.jpg</image>
+        <thumbnail>gallery/s11.jpg</thumbnail>
+        <caption>Wood carvings...</caption>
+    </pic> 
+    <pic>
+        <image>gallery/12.jpg</image>
+        <thumbnail>gallery/s12.jpg</thumbnail>
+        <caption>Nightshot from the office</caption>
+    </pic>     
+    <pic>
+        <image>gallery/13.jpg</image>
+        <thumbnail>gallery/s13.jpg</thumbnail>
+        <caption>Red Light, STOP!!!</caption>
+    </pic>
+    <pic>
+        <image>gallery/14.jpg</image>
+        <thumbnail>gallery/s14.jpg</thumbnail>
+        <caption>Zippo</caption>
+    </pic> 
+    <pic>
+        <image>gallery/15.jpg</image>
+        <thumbnail>gallery/s15.jpg</thumbnail>
+        <caption>Modern Streets</caption>
+    </pic>
+    <pic>
+        <image>gallery/16.jpg</image>
+        <thumbnail>gallery/s16.jpg</thumbnail>
+        <caption>Modern Streets</caption>
+    </pic>
+    <pic>
+        <image>gallery/17.jpg</image>
+        <thumbnail>gallery/s17.jpg</thumbnail>
+        <caption>Modern Streets</caption>
+    </pic>
+    <pic>
+        <image>gallery/18.jpg</image>
+        <thumbnail>gallery/s18.jpg</thumbnail>
+        <caption>Modern Streets</caption>
+    </pic>     
+    <pic>
+        <image>gallery/19.jpg</image>
+        <thumbnail>gallery/s19.jpg</thumbnail>
+        <caption>Modern Streets</caption>
+    </pic>      
+    <pic>
+        <image>gallery/20.jpg</image>
+        <thumbnail>gallery/s20.jpg</thumbnail>
+        <caption>Modern Streets</caption>
+    </pic>
+</images>
