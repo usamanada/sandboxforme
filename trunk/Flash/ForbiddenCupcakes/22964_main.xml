@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="iso-8859-1"?>
+<content>
+	<!-- general vars -->
+	<section name="settings">
+		<item name="textSelectable">true</item>
+		<item name="copyright"><![CDATA[
+Flowers design © 2009 <a href="asfunction:_root.more_click_func, privacyPolicy">  Privacy Policy</a>
+		]]></item>
+		<item name="companyName"><![CDATA[Flowers<font color="#6b6b6b">Forbidden Cupcakes</font>
+		]]></item>
+		<item name="slogan">XXXXTHE BEST SERVICES AND ADVICE FOR YOU</item>
+		<image imageUrl="_logo.jpg" link="asfunction:link"/>
+	</section>
+	
+	<!-- menu -->
+<section name="menu">
+<link systemOrder="1"><![CDATA[
+About
+]]></link>
+
+<link systemOrder="2"><![CDATA[
+Flavours
+]]></link>
+
+<link systemOrder="3"><![CDATA[
+Pricing
+]]></link>
+
+<link systemOrder="4">
+<![CDATA[
+Contacts
+]]></link>
+
+<link systemOrder="5">
+<![CDATA[
+Gallery
+]]></link>
+
+<link systemOrder="6">
+<![CDATA[
+FAQ
+]]></link>
+
+</section>
+	
+<section name="global_img">
+		<image imageUrl="_m10_web.png"  link="asfunction:link"/>
+		<image imageUrl="_m5_web.png"  link="asfunction:link"/>
+		<image imageUrl="_m9_web.png"  link="asfunction:link"/>
+		<image imageUrl="_m8_web.png"  link="asfunction:link"/>
+		<image imageUrl="_m6_web.png"  link="asfunction:link"/>
+		<image imageUrl="_m3_web.png"  link="asfunction:link"/>
+		
+</section>	
+	
+	<!-- pages -->
+	<section name="pages">
+		
+		
+<page name="About">
+<image imageUrl="_about.png" link="asfunction:link"/>
+
+<texts>
+
+<pageText><![CDATA[
+<font color="#FF0000">Welcome to Forbidden Cupcakes</font>
+]]></pageText>
+
+<pageText><![CDATA[
+<font color="#c6c5c5">Have a special occasion to plan for? Why not serve up a tier of decadent cupcakes. Forbidden Cupcakes offers a variety of flavours to suit every celebration. If you can't see it, contact us for a friendly discussion. </font>
+<br><br>
+<font color="#c6c5c5">Our delicious cupcakes are made using only the finest ingredients and baked fresh for your party. So come on in and browse through our world of Forbidden Cupcakes. </font>
+<br><br>
+]]></pageText>
+
+</texts>
+</page>
+
+<page name="Flavours">
+<texts>
+<pageText><![CDATA[
+<font color="#c6c5c5">
+<font size="20"><font color="#E65C00">Classic Cupcakes</font></font><br><br><br>
+<font color="#ff99ff" size="15">Classic Vanilla</font><br>
+Light vanilla sponge with classic vanilla buttercream topping<br><br>
+<font color="#ff99ff" size="15">Wanna Date?</font><br>
+Traditional sticky date recipe with real date chunks and decadent butterscotch topping<br><br>
+<font color="#ff99ff" size="15">Raspberry Kiss</font><br>
+Raspberry fruit filled sponge topped with finger licking cream cheese frosting<br><br>
+<font color="#ff99ff" size="15">Choco-holic</font><br>
+Chocolate muddy goodness topped with smooth chocolate buttercream<br><br>
+<font color="#ff99ff" size="15">Choc Berry</font><br>
+Chocolate mud base infused with real raspberry fruit topped with raspberry buttercream<br><br>
+<font color="#ff99ff" size="15">On Cloud 9</font><br>
+Dense, milky, white chocolate mud topped with smooth, white chocolate buttercream<br><br>
+<font color="#ff99ff" size="15">White Berry Blush</font><br>
+White chocolate mud infused with real raspberry fruit topped with raspberry buttercream<br><br>
+<font color="#ff99ff" size="15">Lemon Bliss</font><br>
+Refreshing lemon sponge complimented by lemon infused buttercream<br><br>
+<font color="#ff99ff" size="15">Fruity Pash</font><br>
+Light passionfruit sponge topped with passionfruit infused buttercream<br><br>
+<font color="#ff99ff" size="15">Banana-rama</font><br>
+Banana cake base topped with fluffy vanilla buttercream<br><br>
+<font color="#ff99ff" size="15">Nuts about you</font><br>
+Vanilla sponge with chunks of crunchy peanuts, topped with real peanut butter buttercream<br><br>
+<font color="#ff99ff" size="15">Choc Mint Crisp</font><br>
+Chocolate mud base with mint infused buttercream sprinkled with peppermint chards<br><br>
+<font size="20"><font color="#E65C00">Premium Flavours</font></font><br><br><br>
+<font color="#ff99ff" size="15">Death by Chocolate</font><br>
+Thick rich chocolate brownie base with nutella frosting – not for the faint hearted<br><br>
+<font color="#ff99ff" size="15">Oozy Caramel Crunch</font><br>
+Choc sponge with think rich caramel filling topped with chocolate buttercream and honeycomb<br><br>
+<font color="#ff99ff" size="15">Choc Mousse</font><br>
+Chocolate sponge with chocolate mousse filling topped with chocolate buttercream<br><br>
+<font color="#ff99ff" size="15">Lemon Meringue</font><br>
+Light lemon sponge with lemon cured filling topped with fluffy vanilla meringue<br><br><br>
+We also specialise in tiered wedding cakes. Please contact us for a professional consultation and quote. We’d love to hear your ideas on how to make this masterpiece uniquely yours.
+</font>
+<br><br>
+]]></pageText>
+
+</texts>
+</page>
+
+<page name="Pricing">
+<texts>
+<pageText><![CDATA[
+<font color="#EFA400">Pricing</font>
+]]></pageText>
+</texts>
+</page>
+
+<page name="Contact">
+<texts>
+<pageText><![CDATA[
+<font color="#72D100">Contact Us</font>
+]]></pageText>
+</texts>
+</page>
+
+<page name="gallery">
+<image imageUrl="_gal_pic1_small.png" link="asfunction:link"/>
+<image imageUrl="_gal_pic2_small.png" link="asfunction:link"/>
+<image imageUrl="_gal_pic3_small.png" link="asfunction:link"/>
+<image imageUrl="_gal_pic4_small.png" link="asfunction:link"/>
+<image imageUrl="_gal_pic5_small.png" link="asfunction:link"/>
+<image imageUrl="_gal_pic6_small.png" link="asfunction:link"/>
+<image imageUrl="_gal_pic7_small.png" link="asfunction:link"/>
+<image imageUrl="_gal_pic8_small.png" link="asfunction:link"/>
+<image imageUrl="_gal_pic9_small.png" link="asfunction:link"/>
+<image imageUrl="_gal_pic10_small.png" link="asfunction:link"/>
+<image imageUrl="_gal_pic14_small.png" link="asfunction:link"/>
+<image imageUrl="_gal_pic12_small.png" link="asfunction:link"/>
+
+<image imageUrl="_gal_pic1.png"/>
+<image imageUrl="_gal_pic2.png"/>
+<image imageUrl="_gal_pic3.png"/>
+<image imageUrl="_gal_pic4.png"/>
+<image imageUrl="_gal_pic5.png"/>
+<image imageUrl="_gal_pic6.png"/>
+<image imageUrl="_gal_pic7.png"/>
+<image imageUrl="_gal_pic8.png"/>
+<image imageUrl="_gal_pic9.png"/>
+<image imageUrl="_gal_pic10.png"/>
+<image imageUrl="_gal_pic14.png"/>
+<image imageUrl="_gal_pic12.png"/>
+
+<texts>
+<pageText><![CDATA[
+<font color="#079BF7">Gallery</font>
+]]></pageText>
+</texts>
+</page>
+
+<page name="contacts">
+<image imageUrl="_pic14.png" link="asfunction:link"/>
+
+<texts>
+
+<pageText><![CDATA[
+<font color="#CF56F6">FAQ</font>
+]]></pageText>
+<pageText><![CDATA[
+<font color="#ff99ff" size="15"><b>How much notice do you require for an order?</b></font>
+<br>Two days notice is required for a cupcake order. We encourage you to notify us as soon as possible for wedding orders so we can tentatively save the date.
+<br><br>
+<font color="#ff99ff" size="15"><b>How do I store my cupcakes?</b></font>
+<br>Forbidden Cupcakes prides itself in using the finest ingredients. As no preservatives are used in our recipes our cupcakes can be kept fresh for up to 3 days in an air tight container. Keep at room temperature, do not refrigerate. 
+<br><br>
+<font color="#ff99ff" size="15"><b>Where are you located?</b></font>
+<br>Forbidden Cupcakes is situated in a Bayside suburb. Pick up of orders can be arranged by appointment. Similarly, if you wish to have a face to face consultation please feel free to contact Pau-Ling on 0432 688 315 to arrange a suitable time. 
+<br><br>
+<font color="#ff99ff" size="15"><b>What payment options are there?</b></font>
+<br>Orders greater than $200 require 50% deposit upon booking with the remaining 50% due one week prior to delivery.
+<br>You can pay using the following methods;
+<br>1.	Cash
+<br>2.	Electronic Transfer
+<br><br>
+<font color="#ff99ff" size="15"><b>Why can’t I order a dozen of mixed flavours?</b></font>
+<br>Forbidden Cupcakes are baked fresh to order, we do not hold stock on premises to accommodate mixed orders. One dozen is the minimum order for one standard flavour (or 24 minis).
+<br><br>
+<font color="#ff99ff" size="15"><b>Can you create custom designs and flavours?</b></font>
+<br>Yes, we are always up for the challenge. Please contact us to discuss your specific requests. 
+<br><br>
+<font color="#ff99ff" size="15"><b>Are your cupcakes gluten free or allergen free?</b></font>
+<br>Our recipes have been perfected using the finest ingredients to achieve delicious taste, texture and look. Our products include diary, eggs, wheat and may include traces of nuts. 
+<br><br>
+<font color="#ff99ff" size="15"><b>Can you deliver my order as a present?</b></font>
+<br>Absolutely! Like flowers, we can deliver to your special someone on Valentines Day, Birthdays, Anniversaries etc.
+]]></pageText>
+</pageText>
+
+
+</texts>
+
+</page>
+</section>
+</content>
