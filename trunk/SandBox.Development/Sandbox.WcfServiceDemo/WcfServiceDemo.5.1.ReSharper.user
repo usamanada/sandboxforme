@@ -1,0 +1,97 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="5B840093-9515-41DD-B089-6E4D0AE28690/f:Form1.cs" caret="622" fromTop="25" />
+      <File id="B16C07DF-F32D-492E-B985-41D968AAD578/d:Properties/f:AssemblyInfo.cs" caret="0" fromTop="0" />
+      <File id="B16C07DF-F32D-492E-B985-41D968AAD578/f:IServiceOrders.cs" caret="519" fromTop="0" />
+      <File id="B16C07DF-F32D-492E-B985-41D968AAD578/f:Web.Debug.config" caret="0" fromTop="0" />
+      <File id="B16C07DF-F32D-492E-B985-41D968AAD578/f:Web.Release.config" caret="0" fromTop="0" />
+      <File id="B16C07DF-F32D-492E-B985-41D968AAD578/f:Web.config" caret="217" fromTop="9" />
+      <File id="B16C07DF-F32D-492E-B985-41D968AAD578/f:ServiceOrders.svc.cs" caret="321" fromTop="10" />
+      <File id="B16C07DF-F32D-492E-B985-41D968AAD578/f:ServiceOrders.svc" caret="80" fromTop="0" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="B16C07DF-F32D-492E-B985-41D968AAD578/f:ServiceOrders.svc.cs" caret="0" fromTop="0" />
+      <File id="5B840093-9515-41DD-B089-6E4D0AE28690/f:Form1.cs" caret="192" fromTop="8" />
+      <File id="5B840093-9515-41DD-B089-6E4D0AE28690/f:Form1.cs" caret="5844" fromTop="21" />
+      <File id="5B840093-9515-41DD-B089-6E4D0AE28690/f:Form1.cs" caret="584" fromTop="21" />
+      <File id="B16C07DF-F32D-492E-B985-41D968AAD578/f:IServiceOrders.cs" caret="443" fromTop="14" />
+      <File id="B16C07DF-F32D-492E-B985-41D968AAD578/f:IServiceOrders.cs" caret="1899" fromTop="34" />
+      <File id="B16C07DF-F32D-492E-B985-41D968AAD578/f:IServiceOrders.cs" caret="1899" fromTop="40" />
+      <File id="B16C07DF-F32D-492E-B985-41D968AAD578/f:IServiceOrders.cs" caret="1916" fromTop="35" />
+      <File id="B16C07DF-F32D-492E-B985-41D968AAD578/f:IServiceOrders.cs" caret="1329" fromTop="25" />
+      <File id="B16C07DF-F32D-492E-B985-41D968AAD578/f:IServiceOrders.cs" caret="562" fromTop="9" />
+      <File id="B16C07DF-F32D-492E-B985-41D968AAD578/f:IServiceOrders.cs" caret="1472" fromTop="46" />
+      <File id="B16C07DF-F32D-492E-B985-41D968AAD578/f:IServiceOrders.cs" caret="1678" fromTop="49" />
+      <File id="B16C07DF-F32D-492E-B985-41D968AAD578/f:IServiceOrders.cs" caret="1628" fromTop="33" />
+      <File id="B16C07DF-F32D-492E-B985-41D968AAD578/f:IServiceOrders.cs" caret="1285" fromTop="20" />
+      <File id="B16C07DF-F32D-492E-B985-41D968AAD578/f:ServiceOrders.svc.cs" caret="403" fromTop="11" />
+      <File id="B16C07DF-F32D-492E-B985-41D968AAD578/f:IServiceOrders.cs" caret="1070" fromTop="37" />
+      <File id="B16C07DF-F32D-492E-B985-41D968AAD578/f:ServiceOrders.svc.cs" caret="1474" fromTop="32" />
+      <File id="B16C07DF-F32D-492E-B985-41D968AAD578/f:ServiceOrders.svc.cs" caret="1510" fromTop="35" />
+      <File id="B16C07DF-F32D-492E-B985-41D968AAD578/f:IServiceOrders.cs" caret="736" fromTop="24" />
+      <File id="B16C07DF-F32D-492E-B985-41D968AAD578/f:ServiceOrders.svc.cs" caret="1120" fromTop="23" />
+      <File id="B16C07DF-F32D-492E-B985-41D968AAD578/f:ServiceOrders.svc.cs" caret="1121" fromTop="23" />
+      <File id="B16C07DF-F32D-492E-B985-41D968AAD578/f:ServiceOrders.svc" caret="80" fromTop="0" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="ServiceReference1" priority="1" />
+      <Item value="new" priority="4" />
+      <Item value="using" priority="0" />
+      <Item value="Service1Client`0" priority="1" />
+      <Item value="context" priority="0" />
+      <Item value="txtCall" priority="0" />
+      <Item value="string" priority="0" />
+      <Item value="int" priority="5" />
+      <Item value="OrderedParallelQuery" priority="0" />
+      <Item value="List&lt;StockOnHand&gt;" priority="0" />
+      <Item value="soh" priority="0" />
+      <Item value="StockOnHand" priority="0" />
+      <Item value="Product" priority="0" />
+      <Item value="ProductDescription" priority="0" />
+      <Item value="ReservedItem" priority="0" />
+      <Item value="ProductSku" priority="0" />
+      <Item value="productSku" priority="0" />
+      <Item value="ReserveId" priority="0" />
+      <Item value="SerialId" priority="0" />
+      <Item value="SiteId" priority="0" />
+      <Item value="siteId" priority="0" />
+      <Item value="return" priority="3" />
+      <Item value="ri" priority="0" />
+      <Item value="Order`0" priority="0" />
+      <Item value="Order" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:WebServiceTestApp.ServiceReference1.Service1Client">
+      <Item value="GetData`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.TextBox">
+      <Item value="Text" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Int32">
+      <Item value="Parse`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.List`1">
+      <Item value="Add`0" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+</Configuration>
