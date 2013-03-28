@@ -31,6 +31,8 @@ namespace TestDataBaseConnectivity
             this.TestBtn = new System.Windows.Forms.Button();
             this.ConnectionStringTxt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtExample = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // TestBtn
@@ -45,11 +47,12 @@ namespace TestDataBaseConnectivity
             // 
             // ConnectionStringTxt
             // 
+            this.ConnectionStringTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.ConnectionStringTxt.Location = new System.Drawing.Point(13, 27);
             this.ConnectionStringTxt.Name = "ConnectionStringTxt";
-            this.ConnectionStringTxt.Size = new System.Drawing.Size(525, 20);
+            this.ConnectionStringTxt.Size = new System.Drawing.Size(616, 20);
             this.ConnectionStringTxt.TabIndex = 1;
-            this.ConnectionStringTxt.Text = "server=UMELDD05;database=Scoops;Integrated Security=true";
             // 
             // label1
             // 
@@ -60,16 +63,41 @@ namespace TestDataBaseConnectivity
             this.label1.TabIndex = 2;
             this.label1.Text = "Connection String";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(16, 83);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(47, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Example";
+            // 
+            // txtExample
+            // 
+            this.txtExample.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtExample.Location = new System.Drawing.Point(19, 100);
+            this.txtExample.Multiline = true;
+            this.txtExample.Name = "txtExample";
+            this.txtExample.Size = new System.Drawing.Size(610, 108);
+            this.txtExample.TabIndex = 4;
+            this.txtExample.Text = "Data Source=05W8F2APSQ01\\UAT;Initial Catalog=GroundTruthAusPost;User ID=GroundTru" +
+                "th;Password=12345678x@X";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(559, 101);
+            this.ClientSize = new System.Drawing.Size(641, 220);
+            this.Controls.Add(this.txtExample);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ConnectionStringTxt);
             this.Controls.Add(this.TestBtn);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -80,6 +108,8 @@ namespace TestDataBaseConnectivity
         private System.Windows.Forms.Button TestBtn;
         private System.Windows.Forms.TextBox ConnectionStringTxt;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtExample;
     }
 }
 

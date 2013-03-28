@@ -30,5 +30,14 @@ namespace TestDataBaseConnectivity
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            txtExample.Text =
+                "Sql Login" + Environment.NewLine +                
+                "Data Source=[ServerName|\\Instance];Initial Catalog=[Databasename];User ID=[Username];Password=[Password]" + Environment.NewLine +
+                "Integrated" + Environment.NewLine +                 
+                "Data Source=[ServerName];Initial Catalog=[Database];Trusted_Connection=True;";
+        }
     }
 }
