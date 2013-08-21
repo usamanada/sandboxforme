@@ -1,0 +1,14 @@
+﻿<Window x:Class="ExcelUpload.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="352" Width="525">
+    <Grid>
+        <Button x:Name="btnExcelOpen" Content="..." HorizontalAlignment="Left" Margin="482,14,0,0" VerticalAlignment="Top" Width="25" Click="btnExcelOpen_Click"/>
+        <Label Content="Excel" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtExcelFile" HorizontalAlignment="Left" Height="23" Margin="53,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="412"/>
+        <ComboBox x:Name="cbxSheets" HorizontalAlignment="Left" Margin="53,41,0,0" VerticalAlignment="Top" Width="253" SelectionChanged="cbxSheets_SelectionChanged"/>
+        <Label Content="Sheets" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,1.923"/>
+        <DataGrid x:Name="dgExcelSheet" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,70,0,0" IsReadOnly="True"/>
+
+    </Grid>
+</Window>
